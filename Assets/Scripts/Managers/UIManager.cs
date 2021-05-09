@@ -6,14 +6,25 @@ namespace DefaultNamespace.Managers
 {
     public class UIManager : MonoBehaviour
     {
-        [SerializeField] private Canvas _canvas;
-        [SerializeField] private Text _displayedText;
-        private string textToBeDisplayed;
+        [SerializeField] private Canvas canvas;
+        [SerializeField] private Text displayedText;
+        [SerializeField] private Image backgroundPanel;  
+        [SerializeField] private Image textPanel;  
         
         private void Start()
         {
-            textToBeDisplayed = GameManager.Instance.ComponentManager.TextLines[0].Text;
-            _displayedText.text = textToBeDisplayed;
+            backgroundPanel.gameObject.SetActive(false);
+            textPanel.gameObject.SetActive(false);
+            
+            LoadText(0);
+        }
+
+        public void LoadText(int id)
+        {
+            displayedText.text = GameManager.Instance.ComponentManager.TextLines[id].Text;
+            
+            backgroundPanel.gameObject.SetActive(true);
+            textPanel.gameObject.SetActive(true);
         }
     }
 }
