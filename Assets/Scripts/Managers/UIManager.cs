@@ -8,34 +8,43 @@ namespace DefaultNamespace.Managers
     public class UIManager : MonoBehaviour
     {
         [SerializeField] private Canvas canvas;
-        [SerializeField] private Text displayedText;
         [SerializeField] private Image backgroundPanel;  
+        
+        [SerializeField] private Text displayedText;
         [SerializeField] private Image textPanel;
-        private string textToDisplay;
+        
+        
+        [SerializeField] private Text speakerName;
+        [SerializeField] private Image speakerNamePanel;
+        
         private void Start()
         {
             backgroundPanel.gameObject.SetActive(false);
             textPanel.gameObject.SetActive(false);
+            speakerNamePanel.gameObject.SetActive(false);
             
-            LoadText(0);
+            LoadText(3);
         }
 
         public void LoadText(int id)
         {
-            textToDisplay = GameManager.Instance.ComponentManager.TextLines[id].Text;
+            TextLine textLine = GameManager.Instance.ComponentManager.TextLines[id];
+            var textToDisplay = textLine.Text;
+            speakerName.text = textLine.SpeakerName;
             
             backgroundPanel.gameObject.SetActive(true);
             textPanel.gameObject.SetActive(true);
+            speakerNamePanel.gameObject.SetActive(true);
             
-            StartCoroutine(nameof(DisplayText), 1.4 / textToDisplay.Length);
+            StartCoroutine(DisplayText(0.3f, textToDisplay));
         }
         
-        private IEnumerator DisplayText(float waitTime)
+        private IEnumerator DisplayText(float waitTime, string text)
         {
-            string currentText = "";
-            for (int i = 0; i < textToDisplay.Length; i++)
+            var currentText = "";
+            foreach (var nextChar in text)
             {
-                currentText = currentText + textToDisplay[i];
+                currentText += nextChar;
                 displayedText.text = currentText;
                 yield return new WaitForSeconds(waitTime);
             }
