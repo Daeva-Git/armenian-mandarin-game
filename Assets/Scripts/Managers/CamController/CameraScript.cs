@@ -26,8 +26,8 @@ public class CameraScript : MonoBehaviour
 	// Update is called once per frame
 	void FixedUpdate() {
 		mousePos = Input.mousePosition;
-		x_rotation = - Mathf.Atan(0.5f - mousePos.x / cam.pixelWidth) * x_intensity;
-		y_rotation = Mathf.Atan(0.5f - mousePos.y / cam.pixelHeight) * y_intensity;
+		x_rotation = - Mathf.Atan(2*(0.5f - mousePos.x / cam.pixelWidth)) * x_intensity;
+		y_rotation = Mathf.Atan(2*(0.5f - mousePos.y / cam.pixelHeight)) * y_intensity;
 
 		if(perlinNoise){
 			x_rotation += perlin_intensity * (Mathf.PerlinNoise(Time.time * perlin_speed + perlinOffset, perlinOffset) - 0.5f);

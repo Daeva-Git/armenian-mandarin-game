@@ -17,6 +17,9 @@ public class CursorController : MonoBehaviour
 	RaycastHit hit;
 	Vector3 dir;
 	Vector3 look;
+	int frame = 0;
+	private GameObject[] inter_objects; 
+	private GameObject current_gameobj;
 	// Update is called once per frame
 	void FixedUpdate()
 	{
@@ -24,15 +27,28 @@ public class CursorController : MonoBehaviour
 
 		if (Physics.Raycast(ray, out hit)){
 			look = (hit.point - transform.position).normalized;
+
+			if(hit.transform.gameObject.tag == "Interactive_object"){
+				Cursor.SetCursor(text_bubble_cursor, new Vector2(48, 48), CursorMode.Auto);
+				current_gameobj = hit.transform.gameObject;
+			}else if(frame % 4 == 0){
+				inter_objects = GameObject.FindGameObjectsWithTag("Interactive_object");
+
+				foreach (GameObject obj in inter_objects){
+					dir = (obj.transform.position - transform.position).normalized;
+					float dot = Vector3.Dot(dir, look);
+					if(dot > 0.999){
+						Cursor.SetCursor(text_bubble_cursor, new Vector2(48, 48), CursorMode.Auto);
+						current_gameobj = obj;
+						break;
+					}else{
+						Cursor.SetCursor(default_cursor, new Vector2(28, 28), CursorMode.Auto);
+					}
+					current_gameobj = null;
+				}
+			}
+			frame++;
 		}
 
-		dir = (temp_target.transform.position - transform.position).normalized;
-		float dot = Vector3.Dot(dir, look);
-		
-		if(dot > 0.9985){
-			Cursor.SetCursor(text_bubble_cursor, new Vector2(48, 48), CursorMode.Auto);
-		}else{
-			Cursor.SetCursor(default_cursor, new Vector2(28, 28), CursorMode.Auto);
-		}
 	}
 }

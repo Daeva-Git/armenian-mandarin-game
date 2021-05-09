@@ -258,9 +258,9 @@ Light:
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
+    m_Bias: 0.13
+    m_NormalBias: 0.29
+    m_NearPlane: 0.48
     m_CullingMatrixOverride:
       e00: 1
       e01: 0
@@ -441,10 +441,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1423807728}
-  x_intensity: 20
-  y_intensity: 16
+  x_intensity: 10
+  y_intensity: 8
   perlinNoise: 1
-  perlin_intensity: 1
+  perlin_intensity: 0.8
   perlin_speed: 0.8
 --- !u!114 &1424361232
 MonoBehaviour:
@@ -475,7 +475,7 @@ GameObject:
   - component: {fileID: 1596999150}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Interactive_object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -570,7 +570,7 @@ GameObject:
   - component: {fileID: 2083337707}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Interactive_object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
