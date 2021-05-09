@@ -23,7 +23,7 @@ namespace DefaultNamespace.Managers
             textPanel.gameObject.SetActive(false);
             speakerNamePanel.gameObject.SetActive(false);
             
-            LoadText(3);
+            StartCoroutine(FadeAway(0.02f));
         }
 
         public void LoadText(int id)
@@ -48,6 +48,18 @@ namespace DefaultNamespace.Managers
                 displayedText.text = currentText;
                 yield return new WaitForSeconds(waitTime);
             }
+        }
+        
+        private IEnumerator FadeAway(float waitTime)
+        {
+            Camera.main.orthographic = true;
+            for (var i = 1.0f; i < 5; i += 0.04f)
+            {
+                Camera.main.orthographicSize = i;
+                yield return new WaitForSeconds(waitTime);
+            }
+            
+            LoadText(3);
         }
     }
 }
