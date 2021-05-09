@@ -6,6 +6,8 @@ using UnityEngine;
 public class CameraScript : MonoBehaviour
 {
 	public Camera cam;
+    public float x_intensity = 20;
+    public float y_intensity = 16;
 	Vector3 mousePos;
 	private float x_rotation;
 	private float y_rotation;
@@ -18,8 +20,8 @@ public class CameraScript : MonoBehaviour
 	// Update is called once per frame
 	void FixedUpdate() {
 		mousePos = Input.mousePosition;
-		x_rotation = - Mathf.Atan(0.5f - mousePos.x / cam.pixelWidth) * 20;
-		y_rotation = Mathf.Atan(0.5f - mousePos.y / cam.pixelHeight) * 15;
+		x_rotation = - Mathf.Atan(0.5f - mousePos.x / cam.pixelWidth) * x_intensity;
+		y_rotation = Mathf.Atan(0.5f - mousePos.y / cam.pixelHeight) * y_intensity;
 		cam.transform.localRotation = Quaternion.Euler(y_rotation, x_rotation, 0);
 	}
 }
