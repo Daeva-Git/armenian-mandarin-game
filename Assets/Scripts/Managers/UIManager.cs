@@ -36,7 +36,7 @@ namespace DefaultNamespace.Managers
             textPanel.gameObject.SetActive(true);
             speakerNamePanel.gameObject.SetActive(true);
             
-            StartCoroutine(DisplayText(0.3f, textToDisplay));
+            StartCoroutine(DisplayText(0.02f, textToDisplay));
         }
         
         private IEnumerator DisplayText(float waitTime, string text)
