@@ -15,6 +15,7 @@ public class CameraScript : MonoBehaviour
 	private float x_rotation;
 	private float y_rotation;
 	private int perlinOffset = 0;
+
 	
 	// Start is called before the first frame update
 	void Start()
