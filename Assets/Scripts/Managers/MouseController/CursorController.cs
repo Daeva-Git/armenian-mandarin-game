@@ -29,7 +29,7 @@ public class CursorController : MonoBehaviour
 		dir = (temp_target.transform.position - transform.position).normalized;
 		float dot = Vector3.Dot(dir, look);
 		
-		if(dot > 0.999){
+		if(dot > 0.9985){
 			Cursor.SetCursor(text_bubble_cursor, new Vector2(48, 48), CursorMode.Auto);
 		}else{
 			Cursor.SetCursor(default_cursor, new Vector2(28, 28), CursorMode.Auto);
