@@ -2,23 +2,90 @@
 <TextCollection>
     <TextData>
         <TextLine id="0">
-            <SpeakerName>Հայր</SpeakerName>
-            <Text>Բարև Ձեզ</Text>
+            <SpeakerName>Աշոտ</SpeakerName>
+            <Text>Մենք կրակի մոտ էինք նստել, մարդիկ ու առնետներ էին գնում գալիս։ Մարդիկ ցեխոտ, պատառոտված հագուստներով էին, սա վանների ու կարպետների մեջ փաթաթած մեռելներ էին տանում։</Text>
         </TextLine>
         <TextLine id="1">
-            <SpeakerName>Որդի</SpeakerName>
-            <Text>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Text>
+            <SpeakerName></SpeakerName>
+            <Text>Մենք՝ Սարգիսը, տղայի հայրն ու ես, արդեն երեք օր է՝ փոխնիփոխ, լինգ ով երկաթբետոնե սալերին էինք խփում, եւ սպասում մեզ օգնու թյան դուրս եկած վերամբարձիչներին։ Արդեն երրորդ օրն էր՝ աքլորն ու տղան անընդմեջ բղավում էին, որ իրենց սալերի տակից հանենք։</Text>
         </TextLine>
         <TextLine id="2">
-            <SpeakerName>Դավո</SpeakerName>
-            <Text>
-                Այ լայք թու մուվ իթ մուվ իթ, յու լայթ թու
-                մուվ իթ
-            </Text>
+            <SpeakerName></SpeakerName>
+            <Text>Արդեն երրորդ օրն էր՝ աքլորն ու տղան անընդմեջ բղավում էին, որ իրենց սալերի տակից հանենք։</Text>
         </TextLine>
         <TextLine id="3">
+            <SpeakerName></SpeakerName>
+            <Text>Կրակի կարմիր բոցը լուսավորում էր հեռվում ընկած կոշիկը, որը թավալվում՝ դիրքը փոխում էր մեր գնալ գալուց։ Մենք, փոխնիփոխ հանգստանալով, լինգով, ոտքով, խփում, թփթփացնում էինք սալերին՝ համոզելու համար տղային, որ մեզ ամբողջ քաղաքն է օգնության հասել, մի քիչ էլ դիմանա։</Text>
+        </TextLine>
+        <TextLine id="4">
+            <SpeakerName></SpeakerName>
+            <Text>
+                Տղան մեզ չէր հավատում, տղան հորը գոռաց․
+            </Text>
+        </TextLine>
+        <TextLine id="5">
             <SpeakerName>Աշոտ</SpeakerName>
-            <Text>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Text>
+            <Text>Բա ինչո՞ւ իմ վրայի ծանրությունը չի թեթեւանում, քանի գնում՝ շունչս կտրվում է</Text>
+        </TextLine>
+        <TextLine id="6">
+            <SpeakerName></SpeakerName>
+            <Text>Կրակի բոցի կարմիրը վրան կոշիկը դարձյալ դիրքը փոխել, բարձրացել էր ամանեղենի վրա՝ մտել շերե փի մեջ։ </Text>
+        </TextLine>
+        <TextLine id="7">
+            <SpeakerName>Հայր</SpeakerName>
+            <Text>Դիմանալ է պետք, շնչահեղձությունը գլխիցդ հանիր, դու երկաթի նման առողջություն ունես, պարզապես դա անհամբերությունից է: </Text>
+        </TextLine>
+        <TextLine id="8">
+            <SpeakerName></SpeakerName>
+            <Text> Տղան երկար չխոսեց, Սարգիսը, ավերակ ների վրա ընկնել ելնելով, հասավ հորը։ Բոցի կարմիր գույնր վրան կոշիկը դարձյալ դիրքը փոխել, կանգնել էր ուղիղ իմ դիմաց, երեքօրյա անընդմեջ աշխատանքից ու անքնությունից ողնաշարիս մեջ շամփրում էր ցավը։ </Text>
+        </TextLine>
+        <TextLine id="9">
+            <SpeakerName>Սարգիս և Հայր </SpeakerName>
+            <Text>Խոսի՛ր, ինչո՞ւ չես խոսում:</Text>
+        </TextLine>
+        <TextLine id="10">
+            <SpeakerName></SpeakerName>
+            <Text>Հայրը ձեռքի լինգը գցեց, շտապով նորից վերցրեց</Text>
+        </TextLine>
+        <TextLine id="11">
+            <SpeakerName>Հայր</SpeakerName>
+            <Text>Խոսիր, տղա, ինչո՞ւ ես լռում </Text>
+        </TextLine>
+        <TextLine id="12">
+            <SpeakerName>Տղա</SpeakerName>
+            <Text>Մթից վախենում եմ, ինչ որ բան է շարժվում, վրաս հող է թափվում </Text>
+        </TextLine>
+        <TextLine id="13">
+            <SpeakerName></SpeakerName>
+            <Text>Մենք արդեն երեքով էինք ավերակների վրա, ուրախացել էինք </Text>
+        </TextLine>
+        <TextLine id="14">
+            <SpeakerName>Երեքով</SpeakerName>
+            <Text>Խոսել է պետք, մեզ հետ խոսիր, ինչ֊որ մեկն այդտեղ ինչ գործ ունի։ </Text>
+        </TextLine>
+        <TextLine id="15">
+            <SpeakerName></SpeakerName>
+            <Text>Հարակից եկեղեցու փլատակների տակից աքլորը կրկին կանչեց։ </Text>
+        </TextLine>
+        <TextLine id="16">
+            <SpeakerName>Տղա</SpeakerName>
+            <Text>Քաղաքը չկա… ձեզ ո՞վ է օգնելու… Զգում եմ՝ նա այս տեղ է, նայում է աչքերիս, պտտվում է շուրջս։ </Text>
+        </TextLine>
+        <TextLine id="17">
+            <SpeakerName>Հայր</SpeakerName>
+            <Text>Դու հիմար ես, ինչպես թե չկա քաղաքը, այդ ինչեր ես մտցրել գլուխդ, չե՞ս լսում, որ մեր շենքի բոլոր բնակիչները աշխատում են </Text>
+        </TextLine>
+        <TextLine id="18">
+            <SpeakerName></SpeakerName>
+            <Text>Եվ ով պիտի պտտվի քո շուրջը, մութ է, ու քո երեւակայությունը որեւէ բան է ստեղծում։ Դու գիտե՞ս, որ հիմա մեր քաղաքը դրախտավայր է, չգիտես։ Աստվածներն ու հրեշտակները իջել են երկրի վրա՝ պարում, թռչկոտում են։ </Text>
+        </TextLine>
+        <TextLine id="19">
+            <SpeakerName></SpeakerName>
+            <Text>Մարդկանց այլեւս տներ պետք չեն, մենք ապրելու ենք երկնքում ու երկրի վրա, մեր շուրջը բազմագույն շատրվաններ են գցում։ Ափսոս, որ այդ օրը դպրոց չէիր գնացել, մնացել էիր տանը։ </Text>
+        </TextLine>
+        <TextLine id="20">
+            <SpeakerName></SpeakerName>
+            <Text>Հրեշտակները քեզ համար շատ են ցավում։ Եվ ամենահաճելին, գիտե՞ս, մարդկանց թիկունքին սկսել են թեւեր աճել։ Քեզ դիմանալ է պետք, ուժերդ հավաքիր ու դիմացիր, այդտեղից որ դուրս եկար, ա մեն ինչ ինքդ քո աչքով կտեսնես… </Text>
         </TextLine>
     </TextData>
 </TextCollection>
