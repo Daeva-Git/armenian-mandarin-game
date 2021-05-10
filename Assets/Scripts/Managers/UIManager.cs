@@ -23,7 +23,9 @@ namespace DefaultNamespace.Managers
             textPanel.gameObject.SetActive(false);
             speakerNamePanel.gameObject.SetActive(false);
             
-            StartCoroutine(FadeAway(0.02f));
+
+            LoadText(3);
+            //StartCoroutine(FadeAway(0.02f));
         }
 
         public void LoadText(int id)
