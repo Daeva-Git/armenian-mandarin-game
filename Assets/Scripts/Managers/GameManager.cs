@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
 
     public ComponentManager ComponentManager => componentManager;
     public UIManager UIManager => uiManager;
-
+    
     public static GameManager Instance
     {
         get => _instance;

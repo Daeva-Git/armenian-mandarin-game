@@ -6,11 +6,13 @@ public class CursorController : MonoBehaviour
 {
 	public GameObject temp_target;
 	public Texture2D default_cursor;
-	public Texture2D text_bubble_cursor;
-	// Start is called before the first frame update
-	void Start()
-	{
 
+	public Texture2D text_bubble_cursor;
+
+	// Start is called before the first frame update
+	private void Start()
+	{
+		Cursor.SetCursor(default_cursor, new Vector2(28, 28), CursorMode.Auto);
 	}
 
 	Ray ray;
@@ -18,37 +20,47 @@ public class CursorController : MonoBehaviour
 	Vector3 dir;
 	Vector3 look;
 	int frame = 0;
-	private GameObject[] inter_objects; 
+	private GameObject[] inter_objects;
+
 	private GameObject current_gameobj;
+
 	// Update is called once per frame
 	void FixedUpdate()
 	{
 		ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-		if (Physics.Raycast(ray, out hit)){
+		if (Physics.Raycast(ray, out hit))
+		{
 			look = (hit.point - transform.position).normalized;
 
-			if(hit.transform.gameObject.tag == "Interactive_object"){
+			if (hit.transform.gameObject.tag == "Interactive_object")
+			{
 				Cursor.SetCursor(text_bubble_cursor, new Vector2(48, 48), CursorMode.Auto);
 				current_gameobj = hit.transform.gameObject;
-			}else if(frame % 4 == 0){
+			}
+			else if (frame % 4 == 0)
+			{
 				inter_objects = GameObject.FindGameObjectsWithTag("Interactive_object");
 
-				foreach (GameObject obj in inter_objects){
+				foreach (GameObject obj in inter_objects)
+				{
 					dir = (obj.transform.position - transform.position).normalized;
 					float dot = Vector3.Dot(dir, look);
-					if(dot > 0.999){
+					if (dot > 0.999)
+					{
 						Cursor.SetCursor(text_bubble_cursor, new Vector2(48, 48), CursorMode.Auto);
 						current_gameobj = obj;
 						break;
-					}else{
+					}
+					else
+					{
 						Cursor.SetCursor(default_cursor, new Vector2(28, 28), CursorMode.Auto);
 					}
+
 					current_gameobj = null;
 				}
 			}
 			frame++;
 		}
-
 	}
 }
