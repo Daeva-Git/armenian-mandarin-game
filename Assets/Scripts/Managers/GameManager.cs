@@ -1,8 +1,5 @@
-using System;
-using System.Runtime.CompilerServices;
 using DefaultNamespace.Managers;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,9 +7,11 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private ComponentManager componentManager;
     [SerializeField] private UIManager uiManager;
-
+    [SerializeField] private SoundManager soundManager;
+    
     public ComponentManager ComponentManager => componentManager;
     public UIManager UIManager => uiManager;
+    public SoundManager SoundManager => soundManager;
     
     public static GameManager Instance
     {
