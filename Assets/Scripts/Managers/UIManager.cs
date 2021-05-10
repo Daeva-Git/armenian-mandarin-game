@@ -23,7 +23,11 @@ namespace DefaultNamespace.Managers
             textPanel.gameObject.SetActive(false);
             speakerNamePanel.gameObject.SetActive(false);
             
+<<<<<<< Updated upstream
             LoadText(3);
+=======
+            //StartCoroutine(FadeAway(0.02f));
+>>>>>>> Stashed changes
         }
 
         public void LoadText(int id)
