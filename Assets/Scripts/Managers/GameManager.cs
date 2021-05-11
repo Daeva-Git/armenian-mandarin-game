@@ -50,13 +50,13 @@ public class GameManager : MonoBehaviour
         if(ComponentManager.RatController.globalBoo && flashlightScare){
             flashlightScare = false;
         }
-        if (_playerResponse)
-        {
+        // if (_playerResponse)
+        // {
             if (Input.GetKeyDown(KeyCode.Space) && UIManager.TextDisplayed)
             {
                 NextTextLine();
             }
-        }
+        // }
 
         ComponentManager.CameraScript.UpdateCamera();
     }
@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
         SoundManager.Play(_currentTextLine.Sound);
         if (_currentTextLine.WaitFor != 0 && _currentTextLine.RatCount != 0)
         {
-            _playerResponse = false;
+            // _playerResponse = false;
             var ratSpawningRate = _currentTextLine.WaitFor;
             ComponentManager.RatController.ShowRats(ratSpawningRate);
         }

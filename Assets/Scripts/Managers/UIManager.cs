@@ -60,8 +60,11 @@ namespace DefaultNamespace.Managers
             var waitFor = textLine.WaitFor;
 
             yield return StartCoroutine(LoadTextEnumerator(textToDisplay, narrator, view));
-            GameManager.Instance.ComponentManager.SandParticle.Play();
-            LoadTimer(waitFor);
+            if (textLine.SandDrop)
+            {
+                GameManager.Instance.ComponentManager.SandParticle.Play();
+            }
+            // LoadTimer(waitFor);
         }
 
         private IEnumerator LoadTextEnumerator(string textToDisplay, bool narrator, View view)
