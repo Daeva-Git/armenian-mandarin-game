@@ -59,6 +59,10 @@ public class GameManager : MonoBehaviour
         // }
 
         ComponentManager.CameraScript.UpdateCamera();
+
+        if(Input.GetKeyDown("escape"))
+            Application.Quit();
+            
     }
 
     public void NextTextLine()
@@ -69,9 +73,14 @@ public class GameManager : MonoBehaviour
         SoundManager.Play(_currentTextLine.Sound);
         if (_currentTextLine.WaitFor != 0 && _currentTextLine.RatCount != 0)
         {
+            if(_currentTextLine.RatCount == -1)
+                ComponentManager.RatController.HideRats();
+            else{
+                // _playerResponse = false;
+                var ratSpawningRate = _currentTextLine.RatCount;
+                ComponentManager.RatController.ShowRats(ratSpawningRate);
+            }
             // _playerResponse = false;
-            var ratSpawningRate = _currentTextLine.WaitFor;
-            ComponentManager.RatController.ShowRats(ratSpawningRate);
         }
     }
     
