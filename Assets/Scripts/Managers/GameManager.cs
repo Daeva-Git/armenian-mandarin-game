@@ -1,3 +1,4 @@
+using System;
 using DefaultNamespace.Managers;
 using UnityEngine;
 
@@ -12,6 +13,9 @@ public class GameManager : MonoBehaviour
     public ComponentManager ComponentManager => componentManager;
     public UIManager UIManager => uiManager;
     public SoundManager SoundManager => soundManager;
+
+    private TextLine _currentTextLine;
+    private int _currentID;
     
     public static GameManager Instance
     {
@@ -31,5 +35,20 @@ public class GameManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start()
+    {
+        _currentTextLine = ComponentManager.TextLines[_currentID];
+        UIManager.LoadText(_currentTextLine);
+        SoundManager.PlaySound(_currentTextLine.OST);
+    }
+
+    private void Update()
+    {
+        // while (UIManager.TextDisplayed && !Input.GetKeyDown(KeyCode.Space)) ;
+        // _currentTextLine = ComponentManager.TextLines[++_currentID];
+        // UIManager.LoadText(_currentTextLine);
+        // SoundManager.PlaySound(_currentTextLine.OST);
     }
 }

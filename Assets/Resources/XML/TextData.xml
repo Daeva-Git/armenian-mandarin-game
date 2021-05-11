@@ -2,90 +2,207 @@
 <TextCollection>
     <TextData>
         <TextLine id="0">
-            <SpeakerName>Աշոտ</SpeakerName>
-            <Text>Մենք կրակի մոտ էինք նստել, մարդիկ ու առնետներ էին գնում գալիս։ Մարդիկ ցեխոտ, պատառոտված հագուստներով էին, սա վանների ու կարպետների մեջ փաթաթած մեռելներ էին տանում։</Text>
+            <OST>OST1</OST>
+            <View>Outer</View>
+            <Text> Մենք կրակի մոտ էինք նստել, մարդիկ ու առնետներ էին գնում գալիս։ Մարդիկ ցեխոտ, պատառոտված հագուստներով էին, սա վանների ու կարպետների մեջ փաթաթած մեռելներ էին տանում։</Text>
         </TextLine>
+
         <TextLine id="1">
-            <SpeakerName></SpeakerName>
+            <View>Outer</View>
             <Text>Մենք՝ Սարգիսը, տղայի հայրն ու ես, արդեն երեք օր է՝ փոխնիփոխ, լինգ ով երկաթբետոնե սալերին էինք խփում, եւ սպասում մեզ օգնու թյան դուրս եկած վերամբարձիչներին։ Արդեն երրորդ օրն էր՝ աքլորն ու տղան անընդմեջ բղավում էին, որ իրենց սալերի տակից հանենք։</Text>
         </TextLine>
+
         <TextLine id="2">
-            <SpeakerName></SpeakerName>
+            <Audio>Rooster</Audio>
+            <View>Outer</View>
             <Text>Արդեն երրորդ օրն էր՝ աքլորն ու տղան անընդմեջ բղավում էին, որ իրենց սալերի տակից հանենք։</Text>
         </TextLine>
+
         <TextLine id="3">
-            <SpeakerName></SpeakerName>
+            <View>Outer</View>
             <Text>Կրակի կարմիր բոցը լուսավորում էր հեռվում ընկած կոշիկը, որը թավալվում՝ դիրքը փոխում էր մեր գնալ գալուց։ Մենք, փոխնիփոխ հանգստանալով, լինգով, ոտքով, խփում, թփթփացնում էինք սալերին՝ համոզելու համար տղային, որ մեզ ամբողջ քաղաքն է օգնության հասել, մի քիչ էլ դիմանա։</Text>
         </TextLine>
+
         <TextLine id="4">
-            <SpeakerName></SpeakerName>
-            <Text>
-                Տղան մեզ չէր հավատում, տղան հորը գոռաց․
-            </Text>
+            <View>Outer</View>
+            <Text>Տղան մեզ չէր հավատում:</Text>
         </TextLine>
+
         <TextLine id="5">
-            <SpeakerName>Աշոտ</SpeakerName>
-            <Text>Բա ինչո՞ւ իմ վրայի ծանրությունը չի թեթեւանում, քանի գնում՝ շունչս կտրվում է</Text>
+            <Audio>Debris</Audio>
+            <SpeakerName>Տղա</SpeakerName>
+            <View>Inner</View>
+            <Text>Բա ինչո՞ւ իմ վրայի ծանրությունը չի թեթեւանում, քանի գնում՝ շունչս կտրվում է:</Text>
         </TextLine>
+
         <TextLine id="6">
-            <SpeakerName></SpeakerName>
-            <Text>Կրակի բոցի կարմիրը վրան կոշիկը դարձյալ դիրքը փոխել, բարձրացել էր ամանեղենի վրա՝ մտել շերե փի մեջ։ </Text>
+            <View>Inner</View>
+            <Text>Կրակի բոցի կարմիրը վրան կոշիկը դարձյալ դիրքը փոխել, բարձրացել էր ամանեղենի վրա՝ մտել շերե փի մեջ։</Text>
         </TextLine>
+
         <TextLine id="7">
+            <View>Inner</View>
             <SpeakerName>Հայր</SpeakerName>
-            <Text>Դիմանալ է պետք, շնչահեղձությունը գլխիցդ հանիր, դու երկաթի նման առողջություն ունես, պարզապես դա անհամբերությունից է: </Text>
+            <Text>Դիմանալ է պետք, շնչահեղձությունը գլխիցդ հանիր, դու երկաթի նման առողջություն ունես, պարզապես դա անհամբերությունից է:</Text>
         </TextLine>
+
         <TextLine id="8">
-            <SpeakerName></SpeakerName>
-            <Text> Տղան երկար չխոսեց, Սարգիսը, ավերակ ների վրա ընկնել ելնելով, հասավ հորը։ Բոցի կարմիր գույնր վրան կոշիկը դարձյալ դիրքը փոխել, կանգնել էր ուղիղ իմ դիմաց, երեքօրյա անընդմեջ աշխատանքից ու անքնությունից ողնաշարիս մեջ շամփրում էր ցավը։ </Text>
+            <View>Inner</View>
+            <Text>Տղան երկար չխոսեց, Սարգիսը, ավերակ ների վրա ընկնել ելնելով, հասավ հորը։ Բոցի կարմիր գույնր վրան կոշիկը դարձյալ դիրքը փոխել, կանգնել էր ուղիղ իմ դիմաց, երեքօրյա անընդմեջ աշխատանքից ու անքնությունից ողնաշարիս մեջ շամփրում էր ցավը։</Text>
         </TextLine>
+
         <TextLine id="9">
-            <SpeakerName>Սարգիս և Հայր </SpeakerName>
+            <View>Inner</View>
+            <SpeakerName> Սարգիս և Հայր </SpeakerName>
             <Text>Խոսի՛ր, ինչո՞ւ չես խոսում:</Text>
         </TextLine>
+
         <TextLine id="10">
-            <SpeakerName></SpeakerName>
+            <View>Inner</View>
             <Text>Հայրը ձեռքի լինգը գցեց, շտապով նորից վերցրեց</Text>
         </TextLine>
+
         <TextLine id="11">
+            <View>Inner</View>
             <SpeakerName>Հայր</SpeakerName>
-            <Text>Խոսիր, տղա, ինչո՞ւ ես լռում </Text>
+            <Text>Խոսիր, տղա, ինչո՞ւ ես լռում</Text>
         </TextLine>
+
         <TextLine id="12">
+            <WaitFor>5</WaitFor>
+            <RatCount>6</RatCount>
+            <Audio>Debris</Audio>
             <SpeakerName>Տղա</SpeakerName>
-            <Text>Մթից վախենում եմ, ինչ որ բան է շարժվում, վրաս հող է թափվում </Text>
+            <View>Inner</View>
+            <Text>Մթից վախենում եմ, ինչ որ բան է շարժվում, վրաս հող է թափվում:</Text>
         </TextLine>
+
         <TextLine id="13">
-            <SpeakerName></SpeakerName>
-            <Text>Մենք արդեն երեքով էինք ավերակների վրա, ուրախացել էինք </Text>
+            <View>Inner</View>
+            <Text>Մենք արդեն երեքով էինք ավերակների վրա, ուրախացել էինք:</Text>
         </TextLine>
+
         <TextLine id="14">
+            <View>Inner</View>
             <SpeakerName>Երեքով</SpeakerName>
-            <Text>Խոսել է պետք, մեզ հետ խոսիր, ինչ֊որ մեկն այդտեղ ինչ գործ ունի։ </Text>
+            <Text>Խոսել է պետք, մեզ հետ խոսիր, ինչ֊որ մեկն այդտեղ ինչ գործ ունի։</Text>
         </TextLine>
+
         <TextLine id="15">
-            <SpeakerName></SpeakerName>
-            <Text>Հարակից եկեղեցու փլատակների տակից աքլորը կրկին կանչեց։ </Text>
+            <View>Inner</View>
+            <Text>Հարակից եկեղեցու փլատակների տակից աքլորը կրկին կանչեց։</Text>
         </TextLine>
+
         <TextLine id="16">
+            <OST>OST2</OST>
+            <RatCount>4</RatCount>
+            <WaitFor>7</WaitFor>
             <SpeakerName>Տղա</SpeakerName>
-            <Text>Քաղաքը չկա… ձեզ ո՞վ է օգնելու… Զգում եմ՝ նա այս տեղ է, նայում է աչքերիս, պտտվում է շուրջս։ </Text>
+            <View>Inner</View>
+            <Text>Քաղաքը չկա… ձեզ ո՞վ է օգնելու… Զգում եմ՝ նա այս տեղ է, նայում է աչքերիս, պտտվում է շուրջս։</Text>
         </TextLine>
+
         <TextLine id="17">
             <SpeakerName>Հայր</SpeakerName>
-            <Text>Դու հիմար ես, ինչպես թե չկա քաղաքը, այդ ինչեր ես մտցրել գլուխդ, չե՞ս լսում, որ մեր շենքի բոլոր բնակիչները աշխատում են </Text>
+            <View>Inner</View>
+            <Text>Դու հիմար ես, ինչպես թե չկա քաղաքը, այդ ինչեր ես մտցրել գլուխդ, չե՞ս լսում, որ մեր շենքի բոլոր բնակիչները աշխատում են:</Text>
         </TextLine>
+
         <TextLine id="18">
-            <SpeakerName></SpeakerName>
-            <Text>Եվ ով պիտի պտտվի քո շուրջը, մութ է, ու քո երեւակայությունը որեւէ բան է ստեղծում։ Դու գիտե՞ս, որ հիմա մեր քաղաքը դրախտավայր է, չգիտես։ Աստվածներն ու հրեշտակները իջել են երկրի վրա՝ պարում, թռչկոտում են։ </Text>
+            <SpeakerName>Երեքով</SpeakerName>
+            <View>Inner</View>
+            <Text>Եվ ով պիտի պտտվի քո շուրջը, մութ է, ու քո երեւակայությունը որեւէ բան է ստեղծում։ Դու գիտե՞ս, որ հիմա մեր քաղաքը դրախտավայր է, չգիտես։ Աստվածներն ու հրեշտակները իջել են երկրի վրա՝ պարում, թռչկոտում են։</Text>
         </TextLine>
+
         <TextLine id="19">
-            <SpeakerName></SpeakerName>
-            <Text>Մարդկանց այլեւս տներ պետք չեն, մենք ապրելու ենք երկնքում ու երկրի վրա, մեր շուրջը բազմագույն շատրվաններ են գցում։ Ափսոս, որ այդ օրը դպրոց չէիր գնացել, մնացել էիր տանը։ </Text>
+            <SpeakerName>Երեքով</SpeakerName>
+            <View>Inner</View>
+            <Text>Մարդկանց այլեւս տներ պետք չեն, մենք ապրելու ենք երկնքում ու երկրի վրա, մեր շուրջը բազմագույն շատրվաններ են գցում։ Ափսոս, որ այդ օրը դպրոց չէիր գնացել, մնացել էիր տանը։</Text>
         </TextLine>
+
         <TextLine id="20">
-            <SpeakerName></SpeakerName>
+            <SpeakerName>Երեքով</SpeakerName>
+            <View>Inner</View>
             <Text>Հրեշտակները քեզ համար շատ են ցավում։ Եվ ամենահաճելին, գիտե՞ս, մարդկանց թիկունքին սկսել են թեւեր աճել։ Քեզ դիմանալ է պետք, ուժերդ հավաքիր ու դիմացիր, այդտեղից որ դուրս եկար, ա մեն ինչ ինքդ քո աչքով կտեսնես… </Text>
+        </TextLine>
+
+        <TextLine id="21">
+            <OST>OST1</OST>
+            <Audio>Walking</Audio>
+            <View>Outer</View>
+            <Text>Ուրվագծերի ու մթան միջից դուրս եկած մարդը մոտեցավ կրակին</Text>
+        </TextLine>
+
+        <TextLine id="22">
+            <SpeakerName>Անծանոթը</SpeakerName>
+            <View>Outer</View>
+            <Text>Հետաքրքիր բան եք մտածել, նվագել, էն էլ էս օրե րին, ո՞ւմ մտքով կանցներ։ Արդեն երրորդ օրն է, չէ ̄, վախենամ՝ ուսուցչի տղան էլ չդիմանա, էս շենքից պրծնող եղե՞լ է։ Ասում են՝ դագաղներ են բերել, գնամ…</Text>
+        </TextLine>
+
+        <TextLine id="23">
+            <SpeakerName>Անծանոթը</SpeakerName>
+            <View>Outer</View>
+            <Text>Ինչ որ բանից պիտի սկսել ապրելը, չգիտե՞ք, գեղեցկուհի Մարիամի դիակը գտե՞լ են:</Text>
+        </TextLine>
+
+        <TextLine id="24">
+            <SpeakerName>Անծանոթը</SpeakerName>
+            <View>Outer</View>
+            <Text>Լավ կլինի՝ ձյունը չկտրվի, ասում են՝ երկրաշարժից հետո համաճարակ է սկսվում, գնամ տեսնեմ՝ բերած ները ինչ չափերի են</Text>
+        </TextLine>
+
+        <TextLine id="25">
+            <View>Outer</View>
+            <Text>Մարիամին գտել են եկեղեցու փլատակներից՝ աքլորի ձայնը չի կտրվում</Text>
+        </TextLine>
+
+        <TextLine id="26">
+            <SpeakerName>Անծանոթը</SpeakerName>
+            <View>Outer</View>
+            <Text>Հաստատ լսե՞լ եք։ Թե չէ էս օրերին ամեն մարդու ներսից մի որեւէ կանչ կլսվի:</Text>
+        </TextLine>
+
+        <TextLine id="27">
+            <SpeakerName>Անծանոթը</SpeakerName>
+            <View>Outer</View>
+            <Text>Դե, որ վստահ եք, թող կանչի, կանչի կենա, երեւի մատաղա ցու էր, զոհ…</Text>
+        </TextLine>
+
+        <TextLine id="28">
+            <View>Outer</View>
+            <Text>Նա գնաց, ձյան թացությունը ուսերին, կիլոմետրերով ձգվող խավարի մեջ ու բոցի կարմիր գույնը վրան կոշիկը եկավ փալասների մեջ, բարձրացավ կրծկալի վրա, ու ես նրան չտեսնելու էի տալիս</Text>
+        </TextLine>
+
+        <TextLine id="29">
+            <View>Inner</View>
+            <OST>OST3</OST>
+            <SpeakerName>Հայր</SpeakerName>
+            <Text>Չէ, դու մի ասա, լսո՞ւմ ես նվագի ձայնը, պարզապես ուզում եմ իմանալ, լսո՞ւմ ես, թե՞ ոչ</Text>
+        </TextLine>
+
+        <TextLine id="30">
+            <View>Inner</View>
+            <Text>Սարգիսն ավերակների մեջ շուռ եկած կիսաքանդ դաշնամուրն էր եռանդով տնկտնկացնում։ </Text>
+        </TextLine>
+
+        <TextLine id="31">
+            <View>Inner</View>
+            <RatCount>3</RatCount>
+            <WaitFor>4</WaitFor>
+            <SpeakerName>Որդի</SpeakerName>
+            <Text>Լսում եմ, բա ինչո՞ւ հրեշտակները միայն նվագում են ու ձեզ չեն օգնում, շունչս արդեն կտրվում է:</Text>
+        </TextLine>
+
+        <TextLine id="32">
+            <View>Inner</View>
+            <SpeakerName>Հայր</SpeakerName>
+            <Text>Նրանց թաթիկները նուրբ են, թեւերը նոր են աճել, կվնասվեն:</Text>
+        </TextLine>
+
+        <TextLine id="33">
+            <View>Inner</View>
+            <SpeakerName>Հայր</SpeakerName>
+            <Text>Ձեր չորրորդ «Բ» դասարանը երկնքում է, մի տեսնես՝ ոնց են երամներով թռչկոտում:</Text>
         </TextLine>
     </TextData>
 </TextCollection>
