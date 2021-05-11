@@ -6,12 +6,13 @@ namespace DefaultNamespace.Managers
 {
     public class UIManager : MonoBehaviour
     {
-        [SerializeField] private Canvas canvas;
         [SerializeField] private Image fadePanel;
         [SerializeField] private Text displayedText;
         [SerializeField] private Image textPanel;
         [SerializeField] private Text speakerName;
         [SerializeField] private Image speakerNamePanel;
+        [SerializeField] private Button responseButton;
+        [SerializeField] private Slider timerSlider;
         
         private View _currentView;
         private bool _textDisplayed;
@@ -19,6 +20,7 @@ namespace DefaultNamespace.Managers
         public bool TextDisplayed => _textDisplayed;
         public enum View
         {
+            Default,
             Inner,
             Outer
         }
@@ -30,51 +32,81 @@ namespace DefaultNamespace.Managers
             HideUI();
         }
 
-        private void ShowText()
-        {
-            textPanel.gameObject.SetActive(true);
-        }
-
         private void HideUI()
         {
             textPanel.gameObject.SetActive(false);
             speakerNamePanel.gameObject.SetActive(false);
+            responseButton.gameObject.SetActive(false);
+            timerSlider.gameObject.SetActive(false);
         }
-        
-        public void LoadText(TextLine textLine)
+
+        public void LoadUI(TextLine textLine)
+        {
+            StartCoroutine(LoadUIEnumerator(textLine));
+        }
+
+        private IEnumerator LoadUIEnumerator(TextLine textLine)
         {
             HideUI();
-            
             _textDisplayed = false;
             
+            speakerName.text = textLine.SpeakerName;
             var textToDisplay = textLine.Text;
             var narrator = textLine.SpeakerName == null;
             var view = textLine.View;
-            speakerName.text = textLine.SpeakerName;
-
-            StartCoroutine(LoadTextEnumerator(textToDisplay, narrator, view));
+            var waitFor = textLine.WaitFor;
+            
+            yield return StartCoroutine(LoadTextEnumerator(textToDisplay, narrator, view));
+            LoadTimer(waitFor);
         }
 
         private IEnumerator LoadTextEnumerator(string textToDisplay, bool narrator, View view)
         {
-            if (_currentView != view)
+            if (view != View.Default)
             {
-                if (view == View.Inner)
+                if (_currentView != view)
                 {
-                    yield return StartCoroutine(FadeIn(0.02f)); 
+                    if (view == View.Inner)
+                    {
+                        yield return StartCoroutine(FadeIn(0.02f));
+                    }
+                    else if (view == View.Outer)
+                    {
+                        yield return StartCoroutine(FadeOut(0.02f));
+                    }
+
+                    _currentView = view;
                 }
-                else if (view == View.Outer)
-                {
-                    yield return StartCoroutine(FadeOut(0.02f));
-                }
-                _currentView = view;
             }
             StartCoroutine(DisplayText(0.02f, textToDisplay, narrator));
         }
 
+        private void LoadTimer(float waitFor)
+        {
+            if (waitFor == 0) return;
+            
+            responseButton.gameObject.SetActive(true);
+            timerSlider.gameObject.SetActive(true);
+            
+            StartCoroutine(LoadTimerEnumerator(waitFor));
+        }
+
+        private IEnumerator LoadTimerEnumerator(float duration)
+        {
+            float normalizedTime = 0;
+            while(normalizedTime <= 1f)
+            {
+                timerSlider.value = normalizedTime;
+                normalizedTime += Time.deltaTime / duration;
+                yield return null;
+            }
+
+            GameManager.Instance.ComponentManager.Orange.Blink();
+        }
+        
         private IEnumerator DisplayText(float waitTime, string text, bool narrator)
         {
-            ShowText();
+            textPanel.gameObject.SetActive(true);
             speakerNamePanel.gameObject.SetActive(!narrator);
             
             var currentText = "";
@@ -103,7 +135,7 @@ namespace DefaultNamespace.Managers
         {
             var mainCamera = Camera.main;
             
-            for (var i = mainCamera.orthographicSize; i > 2f; i -= 0.01f)
+            for (var i = mainCamera.orthographicSize; i > 3f; i -= 0.01f)
             {
                 mainCamera.orthographicSize = i;
                 yield return new WaitForSeconds(waitTime);

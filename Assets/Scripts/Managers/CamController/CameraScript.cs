@@ -24,7 +24,7 @@ public class CameraScript : MonoBehaviour
 	}
 
 	// Update is called once per frame
-	public void updateCamera(){
+	public void UpdateCamera(){
 		mousePos = Input.mousePosition;
 		x_rotation = - Mathf.Atan(2*(0.5f - mousePos.x / cam.pixelWidth)) * x_intensity;
 		y_rotation = Mathf.Atan(2*(0.5f - mousePos.y / cam.pixelHeight)) * y_intensity;

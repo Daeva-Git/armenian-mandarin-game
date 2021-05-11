@@ -1,67 +1,55 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class RatController : MonoBehaviour
 {
-	public EyeBehaviour[] rats =  new EyeBehaviour[30];
-	private bool doShowRats = false;
-	private bool wrking = false;
-	private float frequency;
-	private int globalCounter = 0;
-	// Start is called before the first frame update
-	void Start()
+	[SerializeField] private List<EyeBehaviour> ratsCollection;
+
+	private bool _doShowRats;
+	private float _frequency;
+	private int _globalCounter;
+
+	private void Update()
 	{
-	
+		if (_globalCounter > _frequency)
+		{
+			ShowRat();
+			_globalCounter = 0;
+		}
+
+		if (_doShowRats)
+		{
+			_globalCounter++;
+		}
 	}
 
-	// Update is called once per frame
-	void Update()
+	public void ShowRat()
 	{
-		if(globalCounter > frequency){
-			showRat();
-			globalCounter = 0;
-		}
-		if(doShowRats){
-			globalCounter++;
-		}
-		// if(doShowRats && !wrking){
-		// 	wrking = true;
-		// 	StartCoroutine(showOneRat(frequency));
-		// }
-	}
-
-	public void showRat(){
-		int counter = 0;
-		int i = 0;
-		while(true && counter < 30){
+		var counter = 0;
+		int i;
+		var ratsCount = ratsCollection.Capacity;
+		while (counter < 30)
+		{
 			counter++;
-			i = UnityEngine.Random.Range(0,10);
-			if(rats[i].finished == true){
-				rats[i].AppearGlobal();
+			i = Random.Range(0, ratsCount - 1);
+			if (ratsCollection[i].finished)
+			{
+				ratsCollection[i].AppearGlobal();
 				break;
 			}
 		}
 	}
 
-	public void showRats(float freq){
-		frequency = freq * 100;
-		doShowRats = true;
-//		StartCoroutine(showOneRat(frequency));
+	public void ShowRats(float freq)
+	{
+		_frequency = freq * 100;
+		_doShowRats = true;
 	}
 
-	// IEnumerator showOneRat(int frequency){
-	// 	while(doShowRats){
-	// 		yield return new WaitForSeconds(frequency);
-	// 		showRat();
-	// 		Debug.Log("Wrking false");
-	// 		wrking = false;
-	// 		break;
-	// 	}
-	// }
-
-	public void hideRats(){
-		foreach(EyeBehaviour rat in rats){
+	public void HideRats()
+	{
+		foreach (var rat in ratsCollection)
+		{
 			rat.finished = true;
 		}
 	}

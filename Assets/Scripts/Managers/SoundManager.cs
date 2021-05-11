@@ -6,53 +6,83 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioSource OST1;
     [SerializeField] private AudioSource OST2;
     [SerializeField] private AudioSource OST3;
+    [SerializeField] private AudioSource OST4;
+    [SerializeField] private AudioSource OST5;
+    
     [SerializeField] private AudioSource roosterSound;
     [SerializeField] private AudioSource walkingSound;
     [SerializeField] private AudioSource debrisSound;
 
-    private AudioSource _currentPlayingSound;
-    
+    private Sound _currentPlayingSound;
+    private OST _currentPlayingOST;
+        
     public enum Sound
     {
-        OST1,
-        OST2,
-        OST3,
+        Default,
         Walking,
         Rooster,
         Debris
     }
+    public enum OST
+    {
+        Default,
+        OST1,
+        OST2,
+        OST3,
+        OST4,
+        OST5
+    }
 
-    private Dictionary<Sound, AudioSource> _audioSources;
+    private Dictionary<Sound, AudioSource> _soundList;
+    private Dictionary<OST, AudioSource> _ostList;
 
     private void Awake()
     {
-        _audioSources = new Dictionary<Sound, AudioSource>();
+        _soundList = new Dictionary<Sound, AudioSource>();
+        _ostList = new Dictionary<OST, AudioSource>();
         
-        _audioSources.Add(Sound.OST1, OST1);
-        _audioSources.Add(Sound.OST2, OST2);
-        _audioSources.Add(Sound.OST3, OST3);
-        _audioSources.Add(Sound.Walking, walkingSound);
-        _audioSources.Add(Sound.Rooster, roosterSound);
-        _audioSources.Add(Sound.Debris, debrisSound);
+        _ostList.Add(OST.OST1, OST1);
+        _ostList.Add(OST.OST2, OST2);
+        _ostList.Add(OST.OST3, OST3);
+        _ostList.Add(OST.OST4, OST4);
+        _ostList.Add(OST.OST5, OST5);
+        
+        _soundList.Add(Sound.Walking, walkingSound);
+        _soundList.Add(Sound.Rooster, roosterSound);
+        _soundList.Add(Sound.Debris, debrisSound);
 
-        OST1.loop = true;
-        OST2.loop = true;
-        OST3.loop = true;
+        Play(OST.OST1);
     }
 
-    public void PlaySound(Sound sound)
+    public void Play(Sound sound)
     {
-        _currentPlayingSound = _audioSources[sound];
-        _currentPlayingSound.Play();
+        if (sound == Sound.Default) return;
+        if (sound == _currentPlayingSound) return;
+        Stop(_currentPlayingSound);
+        _currentPlayingSound = sound;
+        _soundList[_currentPlayingSound] = _soundList[sound];
+        _soundList[_currentPlayingSound].Play();
+    }
+    
+    public void Play(OST ost)
+    {
+        if (ost == OST.Default) return;
+        if (ost == _currentPlayingOST) return;
+        Stop(_currentPlayingOST);
+        _currentPlayingOST = ost;
+        _ostList[_currentPlayingOST] = _ostList[ost];
+        _ostList[_currentPlayingOST].Play();
     }
 
-    public void StopSound(Sound sound)
+    public void Stop(Sound sound)
     {
-        _audioSources[sound].Stop();
+        if (sound == Sound.Default) return;
+        _soundList[sound].Stop();
     }
 
-    public void StopSound()
+    public void Stop(OST ost)
     {
-        _currentPlayingSound.Stop();
+        if (ost == OST.Default) return;
+        _ostList[ost].Stop();
     }
 }

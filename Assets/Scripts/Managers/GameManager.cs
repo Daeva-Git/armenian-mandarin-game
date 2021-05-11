@@ -8,18 +8,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private ComponentManager componentManager;
     [SerializeField] private UIManager uiManager;
     [SerializeField] private SoundManager soundManager;
-    [SerializeField] private CameraScript cameraScript;
-    [SerializeField] private RatController ratController;
     
     public ComponentManager ComponentManager => componentManager;
     public UIManager UIManager => uiManager;
     public SoundManager SoundManager => soundManager;
-    public CameraScript CameraScript => cameraScript;
-    public RatController RatController => ratController;
 
     private TextLine _currentTextLine;
     private int _currentID;
-    private int stage;
     
     public static GameManager Instance
     {
@@ -40,22 +35,30 @@ public class GameManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
-        
-        stage = 0;
     }
 
     void Update()
     {
-        // while (UIManager.TextDisplayed && !Input.GetKeyDown(KeyCode.Space)) ;
-        // _currentTextLine = ComponentManager.TextLines[++_currentID];
-        // UIManager.LoadText(_currentTextLine);
-        // SoundManager.PlaySound(_currentTextLine.OST);
+        if (Input.GetKeyDown(KeyCode.Space) && UIManager.TextDisplayed)
+        {
+            _currentTextLine = ComponentManager.TextLines[++_currentID];
+            UIManager.LoadUI(_currentTextLine);
+            SoundManager.Play(_currentTextLine.OST);
+            SoundManager.Play(_currentTextLine.Sound);
+            if (_currentTextLine.WaitFor != 0 && _currentTextLine.RatCount != 0)
+            {
+                var ratSpawningRate = _currentTextLine.WaitFor / _currentTextLine.RatCount;
+                ComponentManager.RatController.ShowRats(ratSpawningRate);
+            }
+        }
+        
+        ComponentManager.CameraScript.UpdateCamera();
     }
 
     private void Start()
     {
         _currentTextLine = ComponentManager.TextLines[_currentID];
-        UIManager.LoadText(_currentTextLine);
-        SoundManager.PlaySound(_currentTextLine.OST);
+        UIManager.LoadUI(_currentTextLine);
+        SoundManager.Play(_currentTextLine.OST);
     }
 }

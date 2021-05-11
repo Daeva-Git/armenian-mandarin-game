@@ -11,11 +11,11 @@ public class TextLine {
     [XmlElement("RatCount")]
     public int RatCount { get; set; }
     [XmlElement("OST")]
-    public SoundManager.Sound OST { get; set; }
+    public SoundManager.OST OST { get; set; }
     [XmlElement("View")]
     public UIManager.View View { get; set; }
-    [XmlElement("Audio")]
-    public SoundManager.Sound Audio { get; set; }
+    [XmlElement("Sound")]
+    public SoundManager.Sound Sound { get; set; }
     [XmlElement("WaitFor")]
     public float WaitFor { get; set; }
 }
