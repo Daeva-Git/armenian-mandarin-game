@@ -11,6 +11,7 @@ public class EyeBehaviour : MonoBehaviour
 	private bool blinking = false;
 	private bool hidden = true;
 	private float blinkCounter = 0;
+	public bool finished = true;
 	float waitTime = 0;
 
 	Ray ray;
@@ -27,28 +28,25 @@ public class EyeBehaviour : MonoBehaviour
 		eyelid.transform.rotation = transform.localRotation;
 		hide();
 		
-		waitTime = UnityEngine.Random.Range(10f,30f);
-		StartCoroutine(Appear(waitTime));
+		// waitTime = UnityEngine.Random.Range(10f,30f);
+		// StartCoroutine(Appear(waitTime));
 	}
 
-	// Update is called once per frame
 	void Update()
 	{
-		// if(hidden){
-			
-			
-		// 	hidden = false;
-		// 	eyelid.transform.localPosition = new Vector3(0, 0, -0.03f);
-		// }else{
 
-		// }
+	}
+
+	public void AppearGlobal(){
+		finished = false;
+		StartCoroutine(Appear(UnityEngine.Random.Range(1,3f)));
 	}
 
 	IEnumerator Appear(float waitTimer){
-		while(hidden){
+		while(hidden && !finished){
 			yield return new WaitForSeconds(waitTimer);
 			if(isLooking()){
-				StartCoroutine(Appear(UnityEngine.Random.Range(10f,30f)));
+				StartCoroutine(Appear(UnityEngine.Random.Range(3,5f)));
 				break;
 			}
 			show();
@@ -62,7 +60,7 @@ public class EyeBehaviour : MonoBehaviour
 
 	IEnumerator CheckCollision(){
 		while(!hidden){
-			if(isLooking()){
+			if(isLooking() || finished == true){
 				hidden = true;
 				StartCoroutine(hideEyes());
 			}
@@ -89,7 +87,7 @@ public class EyeBehaviour : MonoBehaviour
 			yield return null;
 		}
 		hide();
-		StartCoroutine(Appear(UnityEngine.Random.Range(10f,30f)));
+		finished = true;
 	}
 
 	void hide(){

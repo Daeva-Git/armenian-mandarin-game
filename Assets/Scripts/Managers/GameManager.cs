@@ -10,15 +10,19 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private ComponentManager componentManager;
     [SerializeField] private UIManager uiManager;
+    [SerializeField] private CameraScript cameraScript;
+    [SerializeField] private RatController ratController;
 
     public ComponentManager ComponentManager => componentManager;
     public UIManager UIManager => uiManager;
-    
+    private int stage;
+
     public static GameManager Instance
     {
         get => _instance;
         private set => _instance = value;
     }
+    
 
     private void Awake()
     {
@@ -32,5 +36,15 @@ public class GameManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
+
+
+        stage = 0;
+    }
+
+    void Update(){
+        if(stage == 0){
+            ratController.showRats(4);
+        }
+        
     }
 }

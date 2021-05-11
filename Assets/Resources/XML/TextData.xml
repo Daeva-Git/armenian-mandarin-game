@@ -2,7 +2,7 @@
 <TextCollection>
     <TextData>
         <TextLine id="0">
-            <SpeakerName>Աշոտ</SpeakerName>
+            <SpeakerName></SpeakerName>
             <Text>Մենք կրակի մոտ էինք նստել, մարդիկ ու առնետներ էին գնում գալիս։ Մարդիկ ցեխոտ, պատառոտված հագուստներով էին, սա վանների ու կարպետների մեջ փաթաթած մեռելներ էին տանում։</Text>
         </TextLine>
         <TextLine id="1">
@@ -24,7 +24,7 @@
             </Text>
         </TextLine>
         <TextLine id="5">
-            <SpeakerName>Աշոտ</SpeakerName>
+            <SpeakerName></SpeakerName>
             <Text>Բա ինչո՞ւ իմ վրայի ծանրությունը չի թեթեւանում, քանի գնում՝ շունչս կտրվում է</Text>
         </TextLine>
         <TextLine id="6">
