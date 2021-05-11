@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
         set => _playerResponse = value;
     }
     private int _currentID;
+    private bool flashlightScare = false;
     
     public static GameManager Instance
     {
@@ -43,6 +44,12 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if(ComponentManager.RatController.globalBoo && !flashlightScare){
+            flashlightScare = true;
+        }
+        if(ComponentManager.RatController.globalBoo && flashlightScare){
+            flashlightScare = false;
+        }
         if (_playerResponse)
         {
             if (Input.GetKeyDown(KeyCode.Space) && UIManager.TextDisplayed)

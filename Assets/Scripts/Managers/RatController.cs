@@ -8,6 +8,7 @@ public class RatController : MonoBehaviour
 	private bool _doShowRats;
 	private float _frequency;
 	private int _globalCounter;
+	public bool globalBoo = false;
 
 	private void Update()
 	{
@@ -20,6 +21,14 @@ public class RatController : MonoBehaviour
 		if (_doShowRats)
 		{
 			_globalCounter++;
+		}
+		
+		foreach(var rat in ratsCollection){
+			if(rat.boo){
+				globalBoo = true;
+				break;
+			}
+			globalBoo = false;
 		}
 	}
 
