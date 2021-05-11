@@ -1010,7 +1010,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 166.30003, y: -81.09999}
-  m_SizeDelta: {x: 60, y: 28}
+  m_SizeDelta: {x: 98.5405, y: 28}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &349528670
 MonoBehaviour:
@@ -1055,7 +1055,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 349528671}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1587643963}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
 --- !u!114 &349528671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3661,6 +3673,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2f83e6da6c3cd6245872a4f9eefe4f7d, type: 3}
   m_PrefabInstance: {fileID: 1565223889}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1587643963 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5045140978158790104, guid: 3e9531bb2d13b2742b95bc0bd0011f5d, type: 3}
+  m_PrefabInstance: {fileID: 374480528}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1589246775 stripped
 GameObject:

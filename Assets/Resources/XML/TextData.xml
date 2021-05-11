@@ -28,9 +28,10 @@
         <TextLine id="5">
             <View>Inner</View>
             <WaitFor>5</WaitFor>
-            <RatCount>6</RatCount>
+<!--            <RatCount>6</RatCount>-->
             <Sound>Debris</Sound>
             <SpeakerName>Տղա</SpeakerName>
+            <SandDrop>true</SandDrop>
             <Text>Բա ինչո՞ւ իմ վրայի ծանրությունը չի թեթեւանում, քանի գնում՝ շունչս կտրվում է:</Text>
         </TextLine>
 
@@ -66,6 +67,7 @@
             <RatCount>6</RatCount>
             <Sound>Debris</Sound>
             <SpeakerName>Տղա</SpeakerName>
+            <SandDrop>true</SandDrop>
             <Text>Մթից վախենում եմ, ինչ որ բան է շարժվում, վրաս հող է թափվում:</Text>
         </TextLine>
 

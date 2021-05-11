@@ -18,4 +18,6 @@ public class TextLine {
     public SoundManager.Sound Sound { get; set; }
     [XmlElement("WaitFor")]
     public float WaitFor { get; set; }
+    [XmlElement("SandDrop")]
+    public bool SandDrop { get; set; }
 }

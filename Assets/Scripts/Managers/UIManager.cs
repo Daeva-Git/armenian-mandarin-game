@@ -28,8 +28,11 @@ namespace DefaultNamespace.Managers
         private void Start()
         {
             _currentView = View.Outer;
+            responseButton.GetComponentInChildren<Text>().text = "Արձագանքել";
             StartCoroutine(FadeOut(0.02f));
             HideUI();
+            
+            responseButton.onClick.AddListener(OnResponseButtonPress);
         }
 
         private void HideUI()
@@ -49,14 +52,15 @@ namespace DefaultNamespace.Managers
         {
             HideUI();
             _textDisplayed = false;
-            
+
             speakerName.text = textLine.SpeakerName;
             var textToDisplay = textLine.Text;
             var narrator = textLine.SpeakerName == null;
             var view = textLine.View;
             var waitFor = textLine.WaitFor;
-            
+
             yield return StartCoroutine(LoadTextEnumerator(textToDisplay, narrator, view));
+            GameManager.Instance.ComponentManager.SandParticle.Play();
             LoadTimer(waitFor);
         }
 
@@ -129,6 +133,12 @@ namespace DefaultNamespace.Managers
                 mainCamera.orthographicSize = i;
                 yield return new WaitForSeconds(waitTime);
             }
+        }
+
+        public void OnResponseButtonPress()
+        {
+            GameManager.Instance.PlayerResponse = true;
+            GameManager.Instance.NextTextLine();
         }
         
         private IEnumerator FadeIn(float waitTime)

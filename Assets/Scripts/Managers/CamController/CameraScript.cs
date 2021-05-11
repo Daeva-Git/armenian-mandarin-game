@@ -23,7 +23,6 @@ public class CameraScript : MonoBehaviour
 		perlinOffset = UnityEngine.Random.Range(0,10000);
 	}
 
-	// Update is called once per frame
 	public void UpdateCamera(){
 		mousePos = Input.mousePosition;
 		x_rotation = - Mathf.Atan(2*(0.5f - mousePos.x / cam.pixelWidth)) * x_intensity;

@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using DefaultNamespace;
 using UnityEngine;
-using UnityEngine.Experimental.GlobalIllumination;
 
 public class ComponentManager : MonoBehaviour
 {

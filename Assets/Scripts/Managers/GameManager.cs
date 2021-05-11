@@ -12,8 +12,13 @@ public class GameManager : MonoBehaviour
     public ComponentManager ComponentManager => componentManager;
     public UIManager UIManager => uiManager;
     public SoundManager SoundManager => soundManager;
-
     private TextLine _currentTextLine;
+    private bool _playerResponse = true;
+    public bool PlayerResponse
+    {
+        get => _playerResponse;
+        set => _playerResponse = value;
+    }
     private int _currentID;
     
     public static GameManager Instance
@@ -22,7 +27,6 @@ public class GameManager : MonoBehaviour
         private set => _instance = value;
     }
     
-
     private void Awake()
     {
         if (Instance == null)
@@ -37,24 +41,33 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    void Update()
+    private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && UIManager.TextDisplayed)
+        if (_playerResponse)
         {
-            _currentTextLine = ComponentManager.TextLines[++_currentID];
-            UIManager.LoadUI(_currentTextLine);
-            SoundManager.Play(_currentTextLine.OST);
-            SoundManager.Play(_currentTextLine.Sound);
-            if (_currentTextLine.WaitFor != 0 && _currentTextLine.RatCount != 0)
+            if (Input.GetKeyDown(KeyCode.Space) && UIManager.TextDisplayed)
             {
-                var ratSpawningRate = _currentTextLine.WaitFor / _currentTextLine.RatCount;
-                ComponentManager.RatController.ShowRats(ratSpawningRate);
+                NextTextLine();
             }
         }
-        
+
         ComponentManager.CameraScript.UpdateCamera();
     }
 
+    public void NextTextLine()
+    {
+        _currentTextLine = ComponentManager.TextLines[++_currentID];
+        UIManager.LoadUI(_currentTextLine);
+        SoundManager.Play(_currentTextLine.OST);
+        SoundManager.Play(_currentTextLine.Sound);
+        if (_currentTextLine.WaitFor != 0 && _currentTextLine.RatCount != 0)
+        {
+            _playerResponse = false;
+            var ratSpawningRate = _currentTextLine.WaitFor;
+            ComponentManager.RatController.ShowRats(ratSpawningRate);
+        }
+    }
+    
     private void Start()
     {
         _currentTextLine = ComponentManager.TextLines[_currentID];
