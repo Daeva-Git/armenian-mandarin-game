@@ -1,38 +1,33 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EyeBehaviour : MonoBehaviour
 {
 	public GameObject eye1;
 	public GameObject eye2;
-	public Transform eyelid_prefab;
-	private GameObject eyelid;
-	private bool blinking = false;
-	private bool hidden = true;
-	private float blinkCounter = 0;
+	public Transform eyelidTransform;
 	public bool finished = true;
-	float waitTime = 0;
-	private int stare_counter = -1;
-	public bool boo = false;
-
-	Ray ray;
-	RaycastHit hit;
-	Vector3 dir;
-
-	Vector3 look;
+	
+	private GameObject _eyelidPrefab;
+	private bool _hidden = true;
+	private float _blinkCounter;
+	private int _stareCounter = -1;
+	public bool scarePlayer;
+	
+	private Ray _ray;
+	private RaycastHit _raycastHit;
+	private Vector3 _direction;
+	private Vector3 _lookingDirection;
 
 	private void Start()
 	{
 		eye1 = transform.GetChild(0).gameObject;
 		eye2 = transform.GetChild(1).gameObject;
-		eyelid = Instantiate(eyelid_prefab, transform, false).gameObject;
-		eyelid.transform.localPosition = new Vector3(0, 0, -0.03f);
-		eyelid.transform.rotation = transform.localRotation;
-		hide();
-
-		// waitTime = UnityEngine.Random.Range(10f,30f);
-		// StartCoroutine(Appear(waitTime));
+		_eyelidPrefab = Instantiate(eyelidTransform, transform, false).gameObject;
+		_eyelidPrefab.transform.localPosition = new Vector3(0, 0, -0.03f);
+		_eyelidPrefab.transform.rotation = transform.localRotation;
+		
+		Hide();
 	}
 
 	public void AppearGlobal()
@@ -43,105 +38,106 @@ public class EyeBehaviour : MonoBehaviour
 
 	private IEnumerator Appear(float waitTimer)
 	{
-		while (hidden && !finished)
+		while (_hidden && !finished)
 		{
 			yield return new WaitForSeconds(waitTimer);
-			if (isLooking())
+			if (IsLooking())
 			{
-				StartCoroutine(Appear(UnityEngine.Random.Range(3, 5f)));
+				StartCoroutine(Appear(Random.Range(3, 5f)));
 				break;
 			}
 
-			show();
-			hidden = false;
-			
-			StartCoroutine(openEyes());
+			Show();
+			_hidden = false;
+
+			StartCoroutine(OpenEyes());
 			StartCoroutine(CheckCollision());
 		}
-		// StartCoroutine(Blink(Random.Range(2f,6f)));
 	}
 
 	private IEnumerator CheckCollision()
 	{
-		while (!hidden)
+		while (!_hidden)
 		{
-			if(stare_counter > -1)
-				stare_counter++;
-			if(stare_counter > 20){
-				boo = true;
-			}
-			if (isLooking() || finished == true)
+			if (_stareCounter > -1)
 			{
-				boo = false;
-				hidden = true;
-				StartCoroutine(hideEyes());
-				stare_counter = -1;
+				_stareCounter++;
 			}
+			if (_stareCounter > 20)
+			{
+				scarePlayer = true;
+			}
+
+			if (IsLooking() || finished)
+			{
+				scarePlayer = false;
+				_hidden = true;
+				StartCoroutine(HideEyes());
+				_stareCounter = -1;
+			}
+
 			yield return new WaitForSeconds(0.1f);
 		}
 	}
 
-	private IEnumerator openEyes()
+	private IEnumerator OpenEyes()
 	{
-		blinkCounter = 0;
-		while (blinkCounter < 0.07f && !hidden)
+		_blinkCounter = 0;
+		while (_blinkCounter < 0.07f && !_hidden)
 		{
-			eyelid.transform.localPosition = new Vector3(0, blinkCounter, -0.03f);
-			blinkCounter += 0.001f;
+			_eyelidPrefab.transform.localPosition = new Vector3(0, _blinkCounter, -0.03f);
+			_blinkCounter += 0.001f;
 			yield return null;
 		}
 
-		blinkCounter = 0;
-		stare_counter = 0;
-		//StartCoroutine(Appear(Random.Range(3f,5f)));
+		_blinkCounter = 0;
+		_stareCounter = 0;
 	}
 
-	private IEnumerator hideEyes()
+	private IEnumerator HideEyes()
 	{
-		blinkCounter = eyelid.transform.localPosition.y + 0.004f;
-		while (blinkCounter > 0)
+		_blinkCounter = _eyelidPrefab.transform.localPosition.y + 0.004f;
+		while (_blinkCounter > 0)
 		{
-			eyelid.transform.localPosition = new Vector3(0, blinkCounter, -0.03f);
-			blinkCounter -= 0.002f;
+			_eyelidPrefab.transform.localPosition = new Vector3(0, _blinkCounter, -0.03f);
+			_blinkCounter -= 0.002f;
 			yield return null;
 		}
 
-		hide();
-		boo = false;
+		Hide();
+		scarePlayer = false;
 		finished = true;
 	}
 
-	void hide()
+	private void Hide()
 	{
-		eye1.transform.GetComponent<MeshRenderer>().enabled = false;
-		eye2.transform.GetComponent<MeshRenderer>().enabled = false;
-		eyelid.transform.GetComponent<MeshRenderer>().enabled = false;
+		eye1.SetActive(false);
+		eye2.SetActive(false);
+		_eyelidPrefab.SetActive(false);
 	}
 
-	private void show()
+	private void Show()
 	{
-		eyelid.transform.localPosition = new Vector3(0, 0, -0.03f);
-		blinkCounter = 0;
-		eye1.transform.GetComponent<MeshRenderer>().enabled = true;
-		eye2.transform.GetComponent<MeshRenderer>().enabled = true;
-		eyelid.transform.GetComponent<MeshRenderer>().enabled = true;
+		_eyelidPrefab.transform.localPosition = new Vector3(0, 0, -0.03f);
+		_blinkCounter = 0;
+		
+		eye1.SetActive(true);
+		eye2.SetActive(true);
+		_eyelidPrefab.SetActive(true);
 	}
 
-	private bool isLooking()
+	private bool IsLooking()
 	{
-		ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-		if (Physics.Raycast(ray, out hit))
+		var mainCamera = GameManager.Instance.ComponentManager.MainCamera;
+		_ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+		if (Physics.Raycast(_ray, out _raycastHit))
 		{
-			look = (hit.point - Camera.main.transform.position).normalized;
+			_lookingDirection = (_raycastHit.point - mainCamera.transform.position).normalized;
 		}
 
-		dir = (transform.position - Camera.main.transform.position).normalized;
-		float dot = Vector3.Dot(dir, look);
-		if (dot > 0.99)
-		{
-			return true;
-		}
+		_direction = (transform.position - mainCamera.transform.position).normalized;
+		var dot = Vector3.Dot(_direction, _lookingDirection);
 
-		return false;
+		return dot > 0.99;
 	}
 }

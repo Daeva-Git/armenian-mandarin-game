@@ -73,9 +73,12 @@ public class GameManager : MonoBehaviour
         SoundManager.Play(_currentTextLine.Sound);
         if (_currentTextLine.WaitFor != 0 && _currentTextLine.RatCount != 0)
         {
-            if(_currentTextLine.RatCount == -1)
+            if (_currentTextLine.RatCount == -1)
+            {
                 ComponentManager.RatController.HideRats();
-            else{
+            }
+            else
+            {
                 // _playerResponse = false;
                 var ratSpawningRate = _currentTextLine.RatCount;
                 ComponentManager.RatController.ShowRats(ratSpawningRate);
@@ -83,7 +86,7 @@ public class GameManager : MonoBehaviour
             // _playerResponse = false;
         }
     }
-    
+
     private void Start()
     {
         _currentTextLine = ComponentManager.TextLines[_currentID];

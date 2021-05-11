@@ -6,11 +6,13 @@ public class ComponentManager : MonoBehaviour
 {
     [SerializeField] private Orange orange;
     [SerializeField] private CameraScript cameraScript;
+    [SerializeField] private Camera mainCamera;
     [SerializeField] private RatController ratController;
     [SerializeField] private GameObject playerFlashLight;
     [SerializeField] private ParticleSystem sandParticle;
     public Orange Orange => orange;
     public CameraScript CameraScript => cameraScript;
+    public Camera MainCamera => mainCamera;
     public RatController RatController => ratController;
     public GameObject PlayerFlashLight => playerFlashLight;
     public ParticleSystem SandParticle => sandParticle;

@@ -22,12 +22,15 @@ public class RatController : MonoBehaviour
 		{
 			_globalCounter++;
 		}
-		
-		foreach(var rat in ratsCollection){
-			if(rat.boo){
+
+		foreach (var rat in ratsCollection)
+		{
+			if (rat.scarePlayer)
+			{
 				globalBoo = true;
 				break;
 			}
+
 			globalBoo = false;
 		}
 	}
@@ -35,12 +38,11 @@ public class RatController : MonoBehaviour
 	public void ShowRat()
 	{
 		var counter = 0;
-		int i;
 		var ratsCount = ratsCollection.Capacity;
 		while (counter < 30)
 		{
 			counter++;
-			i = Random.Range(0, ratsCount - 1);
+			var i = Random.Range(0, ratsCount - 1);
 			if (ratsCollection[i].finished)
 			{
 				ratsCollection[i].AppearGlobal();
