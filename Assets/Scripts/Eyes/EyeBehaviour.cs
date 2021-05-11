@@ -13,6 +13,8 @@ public class EyeBehaviour : MonoBehaviour
 	private float blinkCounter = 0;
 	public bool finished = true;
 	float waitTime = 0;
+	private int stare_counter = -1;
+	public bool boo = false;
 
 	Ray ray;
 	RaycastHit hit;
@@ -63,12 +65,18 @@ public class EyeBehaviour : MonoBehaviour
 	{
 		while (!hidden)
 		{
+			if(stare_counter > -1)
+				stare_counter++;
+			if(stare_counter > 20){
+				boo = true;
+			}
 			if (isLooking() || finished == true)
 			{
+				boo = false;
 				hidden = true;
 				StartCoroutine(hideEyes());
+				stare_counter = -1;
 			}
-
 			yield return new WaitForSeconds(0.1f);
 		}
 	}
@@ -84,7 +92,8 @@ public class EyeBehaviour : MonoBehaviour
 		}
 
 		blinkCounter = 0;
-		StartCoroutine(Appear(Random.Range(3f,5f)));
+		stare_counter = 0;
+		//StartCoroutine(Appear(Random.Range(3f,5f)));
 	}
 
 	private IEnumerator hideEyes()
@@ -98,6 +107,7 @@ public class EyeBehaviour : MonoBehaviour
 		}
 
 		hide();
+		boo = false;
 		finished = true;
 	}
 
