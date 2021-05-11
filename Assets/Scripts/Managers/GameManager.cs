@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
 
     private TextLine _currentTextLine;
     private int _currentID;
+    private bool flashlightScare = false;
     
     public static GameManager Instance
     {
@@ -39,6 +40,13 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if(ComponentManager.RatController.globalBoo && !flashlightScare){
+            flashlightScare = true;
+            Debug.Log("BOO");
+        }
+        if(ComponentManager.RatController.globalBoo && flashlightScare){
+            flashlightScare = false;
+        }
         if (Input.GetKeyDown(KeyCode.Space) && UIManager.TextDisplayed)
         {
             _currentTextLine = ComponentManager.TextLines[++_currentID];
@@ -47,7 +55,7 @@ public class GameManager : MonoBehaviour
             SoundManager.Play(_currentTextLine.Sound);
             if (_currentTextLine.WaitFor != 0 && _currentTextLine.RatCount != 0)
             {
-                var ratSpawningRate = _currentTextLine.WaitFor / _currentTextLine.RatCount;
+                var ratSpawningRate = _currentTextLine.RatCount;
                 ComponentManager.RatController.ShowRats(ratSpawningRate);
             }
         }
