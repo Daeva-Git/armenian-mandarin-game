@@ -45,41 +45,41 @@ public class EyeBehaviour : MonoBehaviour
 		x_pos = perlin_intensity * (Mathf.PerlinNoise(Time.time * perlin_speed + perlinOffset, perlinOffset) - 0.5f);
 		y_pos = perlin_intensity * (Mathf.PerlinNoise(perlinOffset, Time.time * perlin_speed + perlinOffset) - 0.5f);
 		transform.localPosition = pos_original + new Vector3(x_pos, y_pos, 0);
-		if(!_hidden && !blinking){
-			blinking = true;
-			Debug.Log("Start blinking");
-			StartCoroutine(BlinkRoutine(Random.Range(0.6f, 5f)));
-		}
+//		if(!_hidden && !blinking){
+//			blinking = true;
+//			Debug.Log("Start blinking");
+//			StartCoroutine(BlinkRoutine(Random.Range(0.6f, 5f)));
+//		}
 	}
 
-	private IEnumerator BlinkRoutine(float waitTimer){
-		while (_hidden && !finished){
-			yield return new WaitForSeconds(0.1f);
-			StartCoroutine(BlinkClose());
-		}
-	}
+//	private IEnumerator BlinkRoutine(float waitTimer){
+//		while (_hidden && !finished){
+//			yield return new WaitForSeconds(0.1f);
+//			StartCoroutine(BlinkClose());
+//		}
+//	}
 
-	private IEnumerator BlinkClose(){
-		_blinkCounter = _eyelidPrefab.transform.localPosition.y + 0.004f;
-		while (_blinkCounter > 0 && !_hidden)
-		{
-			_eyelidPrefab.transform.localPosition = new Vector3(0, _blinkCounter, -0.03f);
-			_blinkCounter -= 0.002f;
-			yield return null;
-		}
-		StartCoroutine(BlinkOpen());
-	}
+//	private IEnumerator BlinkClose(){
+//		_blinkCounter = _eyelidPrefab.transform.localPosition.y + 0.004f;
+//		while (_blinkCounter > 0 && !_hidden)
+//		{
+//			_eyelidPrefab.transform.localPosition = new Vector3(0, _blinkCounter, -0.03f);
+//			_blinkCounter -= 0.002f;
+//			yield return null;
+//		}
+//		StartCoroutine(BlinkOpen());
+//	}
 
-	private IEnumerator BlinkOpen(){
-		_blinkCounter = 0;
-		while (_blinkCounter < 0.07f && !_hidden)
-		{
-			_eyelidPrefab.transform.localPosition = new Vector3(0, _blinkCounter, -0.03f);
-			_blinkCounter += 0.001f;
-			yield return null;
-		}
-		blinking = false;
-	}
+//	private IEnumerator BlinkOpen(){
+//		_blinkCounter = 0;
+//		while (_blinkCounter < 0.07f && !_hidden)
+//		{
+//			_eyelidPrefab.transform.localPosition = new Vector3(0, _blinkCounter, -0.03f);
+//			_blinkCounter += 0.001f;
+//			yield return null;
+//		}
+//		blinking = false;
+//	}
 
 	public void AppearGlobal()
 	{
