@@ -12,6 +12,8 @@ namespace DefaultNamespace.Managers
         [SerializeField] private Text speakerName;
         [SerializeField] private Image speakerNamePanel;
         [SerializeField] private Button responseButton;
+        [SerializeField] private Text howToPlay;
+        public Text HowToPlay => howToPlay;
         
         private View _currentView;
         private bool _textDisplayed;
@@ -28,13 +30,14 @@ namespace DefaultNamespace.Managers
         {
             _currentView = View.Outer;
             responseButton.GetComponentInChildren<Text>().text = "Արձագանքել";
+            howToPlay.text = "Առաջ գնալու համար սեղմեք space ստեղնը\nԴուրս գալու համար esc";
             StartCoroutine(FadeOut(0.02f));
             HideUI();
             
             responseButton.onClick.AddListener(OnResponseButtonPress);
         }
 
-        private void HideUI()
+        public void HideUI()
         {
             textPanel.gameObject.SetActive(false);
             speakerNamePanel.gameObject.SetActive(false);
@@ -150,12 +153,17 @@ namespace DefaultNamespace.Managers
                 yield return new WaitForSeconds(waitTime);
             }
 
-            var fadePanelColor = fadePanel.color;
-            fadePanelColor.a = 1f;
             mainCamera.orthographic = false;
             
+            yield return StartCoroutine(Fade(0.02f));
+        }
+
+        public IEnumerator Fade(float waitTime)
+        {
             for (var i = 1f; i >= 0; i -= 0.01f)
             {
+                var fadePanelColor = fadePanel.color;
+                fadePanelColor.a = 1f;
                 fadePanelColor.a = i;
                 fadePanel.color = fadePanelColor;
                 yield return new WaitForSeconds(waitTime);

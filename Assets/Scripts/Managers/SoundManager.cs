@@ -8,10 +8,13 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioSource OST3;
     [SerializeField] private AudioSource OST4;
     [SerializeField] private AudioSource OST5;
+    [SerializeField] private AudioSource OST6;
     
     [SerializeField] private AudioSource roosterSound;
     [SerializeField] private AudioSource walkingSound;
     [SerializeField] private AudioSource debrisSound;
+    [SerializeField] private AudioSource rocksSound;
+    [SerializeField] private AudioSource ratsSound;
 
     private Sound _currentPlayingSound;
     private OST _currentPlayingOST;
@@ -21,7 +24,9 @@ public class SoundManager : MonoBehaviour
         Default,
         Walking,
         Rooster,
-        Debris
+        Debris,
+        Rocks,
+        Rats
     }
     public enum OST
     {
@@ -30,7 +35,8 @@ public class SoundManager : MonoBehaviour
         OST2,
         OST3,
         OST4,
-        OST5
+        OST5,
+        OST6
     }
 
     private Dictionary<Sound, AudioSource> _soundList;
@@ -46,10 +52,13 @@ public class SoundManager : MonoBehaviour
         _ostList.Add(OST.OST3, OST3);
         _ostList.Add(OST.OST4, OST4);
         _ostList.Add(OST.OST5, OST5);
+        _ostList.Add(OST.OST6, OST6);
         
         _soundList.Add(Sound.Walking, walkingSound);
         _soundList.Add(Sound.Rooster, roosterSound);
         _soundList.Add(Sound.Debris, debrisSound);
+        _soundList.Add(Sound.Rocks, rocksSound);
+        _soundList.Add(Sound.Rats, ratsSound);
 
         Play(OST.OST1);
     }

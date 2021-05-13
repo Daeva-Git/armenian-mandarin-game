@@ -3,6 +3,7 @@
     <TextData>
         <TextLine id="0">
             <OST>OST1</OST>
+            <Sound>Rocks</Sound>
             <View>Outer</View>
             <Text>Մենք կրակի մոտ էինք նստել, մարդիկ ու առնետներ էին գնում գալիս։ Մարդիկ ցեխոտ, պատառոտված հագուստներով էին, սա վանների ու կարպետների մեջ փաթաթած մեռելներ էին տանում։</Text>
         </TextLine>
@@ -22,13 +23,13 @@
         </TextLine>
 
         <TextLine id="4">
+            <Sound>Rocks</Sound>
             <Text>Մենք, փոխնիփոխ հանգստանալով, լինգով, ոտքով, խփում, թփթփացնում էինք սալերին՝ համոզելու համար տղային, որ մեզ ամբողջ քաղաքն է օգնության հասել, մի քիչ էլ դիմանա։Տղան մեզ չէր հավատում:</Text>
         </TextLine>
 
         <TextLine id="5">
             <View>Inner</View>
             <WaitFor>5</WaitFor>
-<!--            <RatCount>6</RatCount>-->
             <Sound>Debris</Sound>
             <SpeakerName>Տղա</SpeakerName>
             <SandDrop>true</SandDrop>
@@ -45,6 +46,7 @@
         </TextLine>
 
         <TextLine id="8">
+            <Sound>Rats</Sound>
             <Text>Տղան երկար չխոսեց, Սարգիսը, ավերակ ների վրա ընկնել ելնելով, հասավ հորը։ Բոցի կարմիր գույնր վրան կոշիկը դարձյալ դիրքը փոխել, կանգնել էր ուղիղ իմ դիմաց, երեքօրյա անընդմեջ աշխատանքից ու անքնությունից ողնաշարիս մեջ շամփրում էր ցավը։</Text>
         </TextLine>
 
@@ -88,6 +90,7 @@
             <OST>OST2</OST>
             <RatCount>4</RatCount>
             <WaitFor>7</WaitFor>
+            <Sound>Rats</Sound>
             <SpeakerName>Տղա</SpeakerName>
             <Text>Քաղաքը չկա… ձեզ ո՞վ է օգնելու… Զգում եմ՝ նա այս տեղ է, նայում է աչքերիս, պտտվում է շուրջս։</Text>
         </TextLine>
@@ -156,6 +159,7 @@
         <TextLine id="29">
             <OST>OST3</OST>
             <View>Inner</View>
+            <Sound>Rocks</Sound>
             <SpeakerName>Հայր</SpeakerName>
             <Text>Չէ, դու մի ասա, լսո՞ւմ ես նվագի ձայնը, պարզապես ուզում եմ իմանալ, լսո՞ւմ ես, թե՞ ոչ:</Text>
         </TextLine>
@@ -188,6 +192,7 @@
         <TextLine id="35">
             <OST>OST1</OST>
             <RatCount>7</RatCount>
+            <Sound>Rats</Sound>
             <WaitFor>15</WaitFor>
             <SpeakerName>Տղա</SpeakerName>
             <Text>Հայրիկ, առնետը ծոծրակիս է նայում…</Text>
@@ -233,12 +238,15 @@
         <TextLine id="44">
             <OST>OST5</OST>
             <View>Inner</View>
+            <Sound>Debris</Sound>
             <SpeakerName>Տղա</SpeakerName>
             <ShowOrange>true</ShowOrange>
+            <SandDrop>true</SandDrop>
             <Text>Նարինջ եմ գտել։ Սալերի արանքից թափվող հողի հետ նարինջ ընկավ, բուրում է, հայրիկ:</Text>
         </TextLine>
 
         <TextLine id="45">
+            <Sound>Rocks</Sound>
             <Text>Մենք ուրախացել էինք</Text>
         </TextLine>
 
@@ -250,6 +258,154 @@
         <TextLine id="47">
             <SpeakerName>Հայր</SpeakerName>
             <Text>հարկավոր է քիչ֊քիչ, որ հետո մի քանի օր էլ ունենաս… չդնես, լսո՞ւմ ես, միշտ պահիր ափիդ մեջ։ Միամիտ տղա, դու չգիտես՝ հրեշտակը քեզ համար ինչ նվեր է բերել:</Text>
+        </TextLine>
+
+        <TextLine id ="48">
+            <OST>OST1</OST>
+            <View>Outer</View>
+            <Text>Կրակի բոցի կարմիրը վրան կոշիկը դարձյալ դիրքափոխվեց, գնաց ճղված բարձերից թափված փետուրների վրա,</Text>
+        </TextLine>
+
+        <TextLine id="49">
+            <Text>հետո թավալ գլոր հասավ գրքերին եւ ուղիղ ներբանով կանգնեց հակաբեղմնա վորման ապահովիչների ցրիվ տարածքի վրա ու երեսով ուղիղ մեր դիմաց։</Text>
+        </TextLine>
+
+        <TextLine id="50">
+            <SpeakerName>Սարգիս</SpeakerName>
+            <Text>Հոգնել ես, նրա հետ գործ չունես, փորձիր աչքերդ մի քիչ փակել:</Text>
+        </TextLine>
+
+        <TextLine id="51">
+            <Text>Փակ կոպերիս տակ զգում էի, որ նա հիմա շարժվում է մեկ ուրիշ տեղ, տեղիցս ցատկեցի։</Text>
+        </TextLine>
+
+        <TextLine id="52">
+            <SpeakerName>Սարգիս</SpeakerName>
+            <Text>Այդպիսի բան չանես, այնպիսի հոտ կարձակի, որ հետո էլ դրանից պրծում չենք ունենա</Text>
+        </TextLine>
+
+        <TextLine id="53">
+            <OST>OST4</OST>
+            <View>Inner</View>
+            <RatCount>5</RatCount>
+            <WaitFor>10</WaitFor>
+            <Sound>Rocks</Sound>
+            <SpeakerName>Տղա</SpeakerName>
+            <Text>Ոտքերս սառել են, չեն շարժվում, հոգնել եմ, քնել եմ ուզում…</Text>
+        </TextLine>
+
+        <TextLine id="54">
+            <SpeakerName>Հայր</SpeakerName>
+            <Text>Քնելը սխալ է, պիտի փորձես շարժվել, փորձիր մեջքիդ շրջվել։ Պիտի փորձես մատներով մի քիչ փորել ու շրջվել, դա այնքան էլ դժվար չէ:</Text>
+        </TextLine>
+
+        <TextLine id="55">
+            <SpeakerName>Հայր</SpeakerName>
+            <Text>Որ դուրս գաս, քեզ էլ թեւեր կաճեն ու ձեր դասարանի տղաների նման կթռչես երկնքում։ Հիշո՞ւմ ես, ուզում էիր եկեղեցու զանգակատան վրայով թռչել…</Text>
+        </TextLine>
+
+        <TextLine id="56">
+            <RatCount>5</RatCount>
+            <Sound>Rats</Sound>
+            <WaitFor>10</WaitFor>
+            <SpeakerName>Տղա</SpeakerName>
+            <Text>Ես երբեք էլ չեմ ուզեցել զանգակատան վրայով թռչել։ Ինձ հանեք, շունչս կտրվում է, հանեք ինձ…</Text>
+        </TextLine>
+
+        <TextLine id="57">
+            <SpeakerName>Հայր</SpeakerName>
+            <Text>Զանգակատան չէ, բայց դու հո լավ հիշում ես, որ ուզում էիր մեր ձորի ու կորնգանի դաշտերի վրայով թռչել:</Text>
+        </TextLine>
+
+        <TextLine id="58">
+            <SpeakerName>Տղա</SpeakerName>
+            <Text>Ես խեղդվում եմ, մայրիկին կանչեք, հանեք ինձ։</Text>
+        </TextLine>
+
+        <TextLine id="59">
+            <Text>Մենք ամբողջ թափով խփում էինք լինգը սալերին։ Ձեռներիս բշտիկները պայթել էին, ու լինգը այրում էր, լաթերով փաթաթեցինք ու էլի ու էլի խփում էինք պատերին, քարերին, աքլորը կանչում էր փլատակների տակից։</Text>
+        </TextLine>
+
+        <TextLine id="60">
+            <SpeakerName>Հայր</SpeakerName>
+            <Sound>Rocks</Sound>
+            <Text>Լսո՞ւմ ես գործիքների ձայնը, ամբողջ քաղաքն է աշխա տում… Մայրիկն ու քույրիկն էլ թեւեր ունեն, թռչում են, ուր որ է կգան։ Մի քիչ էլ համբերիր ու կպրծնես, շատ քիչ է մնացել</Text>
+        </TextLine>
+
+        <TextLine id="61">
+            <SpeakerName>Տղա</SpeakerName>
+            <Text>Ես փորձեցի հրեշտակին, նա իմ նարինջը ամբողջովին կերավ։ Լսում էի, թե ինչպես էր քստքստացնում։ Նա փոքրիկ հրեշտակ չէ, նրանից բորբոսի հոտ է գալիս…</Text>
+        </TextLine>
+
+        <TextLine id="62">
+            <SpeakerName>Հայր</SpeakerName>
+            <Text>Իզուր, տղա, դու պիտի չփորձեիր:</Text>
+        </TextLine>
+
+        <TextLine id="63">
+            <SpeakerName>Տղա</SpeakerName>
+            <Sound>Rats</Sound>
+            <RatCount>5</RatCount>
+            <WaitFor>10</WaitFor>
+            <Text>Նրանք շատ են, բոլոր անցքերից հոսելով գալիս են, նստել ու նայում են աչքերիս</Text>
+        </TextLine>
+
+        <TextLine id="64">
+            <SpeakerName>Հայր</SpeakerName>
+            <Text>Դու կամքից ուժեղ ես, դու դիմացիր, հիշո՞ւմ ես՝ գարնան մի տոթ օր մուտքում հանդիպել էիր գեղեցկուհի Մարիամին ու շրջազգեստն էիր բարձրացրել։</Text>
+        </TextLine>
+
+        <TextLine id="65">
+            <SpeakerName>Հայր</SpeakerName>
+            <SandDrop>true</SandDrop>
+            <Text> Դու խի զախ ես, ամբողջ քաղաքում դա միայն քեզ է հաջողվել՝ տեսնել գեղեցկուհի Մարիամի սպիտակ հետույքը։ Դրա համար քեզ գոտիով պատժեցի ու չէիր լացում։ Հիմա քեզ ի՞նչ է պատահել։ Ասենք՝ առնետ է, թող առնետ լինի։</Text>
+        </TextLine>
+
+        <TextLine id="66">
+            <SpeakerName>Հայր</SpeakerName>
+            <Text>Դու նրանց հաղթիր, նրանք սպասում են, դու էլ սպասիր… հասկանո՞ւմ ես, շատ կարեւոր է՝ նրանք չզգան, որ դու հոգնել ես։ Նրանք քո ապրելու ցանկությունից կվախենան, երկար չեն սպասի, նրանք էլ հոգնել գիտեն… </Text>
+        </TextLine>
+
+        <TextLine id="67">
+            <SpeakerName>Հայր</SpeakerName>
+            <Sound>Rats</Sound>
+            <Text>Առնետն ի՞նչ է, որ չես կարողանում խաբել։ Հողը որ պաղավ, կթողնեն, կգնան… Համ էլ ո՞վ է քո գլուխը մտցրել, թե առնետները մահացածների աչքերին են մոտենում… Ինչո՞ւ չես մտածում, որ նրանք էլ միայնակ են, վախեցած՝ եկել են քեզ մոտ…  </Text>
+        </TextLine>
+
+        <TextLine id="68">
+            <SpeakerName>Հայր</SpeakerName>
+            <Text>թե չէ վախկոտի տրամաբանությամբ ինչեր ասես, որ չի կարելի հնարել… Փորձիր շարժել ձեռներդ, ոտներդ, մարմինդ, թեկուզ շատ քիչ, թող տեսնեն, որ քո մեջ ուժ կա, դրանից հետո կմիզեն ու կթող նեն, կգնան։ Ես գիտեմ՝ այդպես է առնետի սովորությունը…</Text>
+        </TextLine>
+
+        <TextLine id="69">
+            <OST>OST6</OST>
+            <Fade>true</Fade>
+            <Text>Տղան չէր խոսում։</Text>
+        </TextLine>
+
+        <TextLine id="70">
+            <Sound>Rocks</Sound>
+            <Text>Լինգով խփում, թփթփացնում, դաշնամուրն էինք տնկտնկացնում, նա այլեւս չէր խոսում, մենք երկար սպասե ցինք, հայրը լինգը գցեց</Text>
+        </TextLine>
+
+        <TextLine id="71">
+            <SpeakerName>Հայր</SpeakerName>
+            <Sound>Walking</Sound>
+            <Text>Գնամ օղի բերեմ:</Text>
+        </TextLine>
+
+        <TextLine id="72">
+            <SpeakerName>Սարգիս</SpeakerName>
+            <Text>Խանութներին չմոտենաս, զինվորները հսկում են՝ կկրակեն</Text>
+        </TextLine>
+
+        <TextLine id="73">
+            <SpeakerName>Հայր</SpeakerName>
+            <Text>Ոչինչ</Text>
+        </TextLine>
+
+        <TextLine id="74">
+            <Text>Չէի կարողանում քունս զսպել, հետո թեւաբախության ձայն լսվեց, փլատակների տակից դուրս էր եկել վառ, կարմիր կատարով աքլորը ու թռչում էր մեր ու քաղաքի վրայով, նա հեռանում էր մեզանից… </Text>
         </TextLine>
     </TextData>
 </TextCollection>

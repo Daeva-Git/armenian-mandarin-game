@@ -1,3 +1,4 @@
+using System.Collections;
 using DefaultNamespace.Managers;
 using UnityEngine;
 
@@ -43,8 +44,12 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    private bool _gameStart;
+    
     private void Update()
     {
+        if (!_gameStart) return;
+         
         if (ComponentManager.RatController.ScarePlayer && !_flashlightScare)
         {
             _flashlightScare = true;
@@ -74,11 +79,26 @@ public class GameManager : MonoBehaviour
 
     public void NextTextLine()
     {
-        _currentTextLine = ComponentManager.TextLines[++_currentID];
+        _currentID++;
+        if (_currentID == ComponentManager.TextLines.Capacity)
+        {
+            UIManager.HideUI();
+            UIManager.HowToPlay.text = "Վերջ";
+            UIManager.HowToPlay.gameObject.SetActive(true);
+            _gameStart = false;
+            return;
+        }
+        _currentTextLine = ComponentManager.TextLines[_currentID];
         UIManager.LoadUI(_currentTextLine);
         SoundManager.Play(_currentTextLine.OST);
         SoundManager.Play(_currentTextLine.Sound);
 
+        if (_currentID == 61)
+        {
+            ComponentManager.Orange.Blink();
+            ComponentManager.Orange.gameObject.SetActive(false);
+        }
+        
         if (_currentTextLine.WaitFor != 0)
         {
             _waitingForResponse = true;
@@ -97,6 +117,18 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         _currentTextLine = ComponentManager.TextLines[_currentID];
+        
+        StartCoroutine(HowToPlay());
+    }
+
+    private IEnumerator HowToPlay()
+    {
+        _gameStart = false;
+        UIManager.HowToPlay.gameObject.SetActive(true);
+        yield return new WaitForSeconds(5);
+        UIManager.HowToPlay.gameObject.SetActive(false);
+        _gameStart = true;
+        
         UIManager.LoadUI(_currentTextLine);
         SoundManager.Play(_currentTextLine.OST);
     }
