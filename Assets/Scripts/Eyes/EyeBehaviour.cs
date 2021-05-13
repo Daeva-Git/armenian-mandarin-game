@@ -114,7 +114,7 @@ public class EyeBehaviour : MonoBehaviour
 			{
 				_stareCounter++;
 			}
-			if (_stareCounter > 20)
+			if (_stareCounter > 50)
 			{
 				scarePlayer = true;
 			}
