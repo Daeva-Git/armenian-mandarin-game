@@ -20,4 +20,6 @@ public class TextLine {
     public float WaitFor { get; set; }
     [XmlElement("SandDrop")]
     public bool SandDrop { get; set; }
+    [XmlElement("ShowOrange")]
+    public bool ShowOrange { get; set; }
 }

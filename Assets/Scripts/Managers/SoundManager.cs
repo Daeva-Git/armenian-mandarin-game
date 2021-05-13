@@ -72,6 +72,7 @@ public class SoundManager : MonoBehaviour
         _currentPlayingOST = ost;
         _ostList[_currentPlayingOST] = _ostList[ost];
         _ostList[_currentPlayingOST].Play();
+        _ostList[_currentPlayingOST].loop = true;
     }
 
     public void Stop(Sound sound)

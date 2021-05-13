@@ -12,7 +12,6 @@ namespace DefaultNamespace.Managers
         [SerializeField] private Text speakerName;
         [SerializeField] private Image speakerNamePanel;
         [SerializeField] private Button responseButton;
-        [SerializeField] private Slider timerSlider;
         
         private View _currentView;
         private bool _textDisplayed;
@@ -40,7 +39,6 @@ namespace DefaultNamespace.Managers
             textPanel.gameObject.SetActive(false);
             speakerNamePanel.gameObject.SetActive(false);
             responseButton.gameObject.SetActive(false);
-            timerSlider.gameObject.SetActive(false);
         }
 
         public void LoadUI(TextLine textLine)
@@ -64,7 +62,7 @@ namespace DefaultNamespace.Managers
             {
                 GameManager.Instance.ComponentManager.SandParticle.Play();
             }
-            // LoadTimer(waitFor);
+            LoadTimer(waitFor);
         }
 
         private IEnumerator LoadTextEnumerator(string textToDisplay, bool narrator, View view)
@@ -91,10 +89,7 @@ namespace DefaultNamespace.Managers
         private void LoadTimer(float waitFor)
         {
             if (waitFor == 0) return;
-            
             responseButton.gameObject.SetActive(true);
-            timerSlider.gameObject.SetActive(true);
-            
             StartCoroutine(LoadTimerEnumerator(waitFor));
         }
 
@@ -103,7 +98,7 @@ namespace DefaultNamespace.Managers
             float normalizedTime = 0;
             while(normalizedTime <= 1f)
             {
-                timerSlider.value = normalizedTime;
+                if (!GameManager.Instance.WaitingForResponse) yield break;
                 normalizedTime += Time.deltaTime / duration;
                 yield return null;
             }
@@ -129,8 +124,9 @@ namespace DefaultNamespace.Managers
         
         private IEnumerator FadeOut(float waitTime)
         {
-            var mainCamera = Camera.main;
+            var mainCamera = GameManager.Instance.ComponentManager.MainCamera;
             mainCamera.orthographic = true;
+            
             for (var i = 1.0f; i < 5; i += 0.03f)
             {
                 mainCamera.orthographicSize = i;
@@ -140,13 +136,13 @@ namespace DefaultNamespace.Managers
 
         public void OnResponseButtonPress()
         {
-            GameManager.Instance.PlayerResponse = true;
+            GameManager.Instance.WaitingForResponse = false;
             GameManager.Instance.NextTextLine();
         }
         
         private IEnumerator FadeIn(float waitTime)
         {
-            var mainCamera = Camera.main;
+            var mainCamera = GameManager.Instance.ComponentManager.MainCamera;
             
             for (var i = mainCamera.orthographicSize; i > 3f; i -= 0.01f)
             {
@@ -157,6 +153,7 @@ namespace DefaultNamespace.Managers
             var fadePanelColor = fadePanel.color;
             fadePanelColor.a = 1f;
             mainCamera.orthographic = false;
+            
             for (var i = 1f; i >= 0; i -= 0.01f)
             {
                 fadePanelColor.a = i;

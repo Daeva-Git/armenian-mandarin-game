@@ -234,6 +234,7 @@
             <OST>OST5</OST>
             <View>Inner</View>
             <SpeakerName>Տղա</SpeakerName>
+            <ShowOrange>true</ShowOrange>
             <Text>Նարինջ եմ գտել։ Սալերի արանքից թափվող հողի հետ նարինջ ընկավ, բուրում է, հայրիկ:</Text>
         </TextLine>
 

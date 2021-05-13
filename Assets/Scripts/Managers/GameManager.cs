@@ -12,16 +12,17 @@ public class GameManager : MonoBehaviour
     public ComponentManager ComponentManager => componentManager;
     public UIManager UIManager => uiManager;
     public SoundManager SoundManager => soundManager;
-    private TextLine _currentTextLine;
-    private bool _playerResponse = true;
-    public bool PlayerResponse
+    public bool WaitingForResponse
     {
-        get => _playerResponse;
-        set => _playerResponse = value;
+        get => _waitingForResponse;
+        set => _waitingForResponse = value;
     }
-    private int _currentID;
-    private bool flashlightScare = false;
     
+    private TextLine _currentTextLine;
+    private bool _waitingForResponse;
+    private bool _flashlightScare;
+    private int _currentID;
+
     public static GameManager Instance
     {
         get => _instance;
@@ -44,25 +45,31 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(ComponentManager.RatController.globalBoo && !flashlightScare){
-            flashlightScare = true;
+        if (ComponentManager.RatController.ScarePlayer && !_flashlightScare)
+        {
+            _flashlightScare = true;
+            ComponentManager.Orange.Blink();
         }
-        if(ComponentManager.RatController.globalBoo && flashlightScare){
-            flashlightScare = false;
+
+        if (ComponentManager.RatController.ScarePlayer && _flashlightScare)
+        {
+            _flashlightScare = false;
         }
-        // if (_playerResponse)
-        // {
+
+        if (!_waitingForResponse)
+        {
             if (Input.GetKeyDown(KeyCode.Space) && UIManager.TextDisplayed)
             {
                 NextTextLine();
             }
-        // }
+        }
 
         ComponentManager.CameraScript.UpdateCamera();
 
-        if(Input.GetKeyDown("escape"))
+        if (Input.GetKeyDown("escape"))
+        {
             Application.Quit();
-            
+        }
     }
 
     public void NextTextLine()
@@ -71,19 +78,19 @@ public class GameManager : MonoBehaviour
         UIManager.LoadUI(_currentTextLine);
         SoundManager.Play(_currentTextLine.OST);
         SoundManager.Play(_currentTextLine.Sound);
-        if (_currentTextLine.WaitFor != 0 && _currentTextLine.RatCount != 0)
+
+        if (_currentTextLine.WaitFor != 0)
         {
-            if (_currentTextLine.RatCount == -1)
+            _waitingForResponse = true;
+            if (_currentTextLine.RatCount != 0)
             {
-                ComponentManager.RatController.HideRats();
-            }
-            else
-            {
-                // _playerResponse = false;
                 var ratSpawningRate = _currentTextLine.RatCount;
                 ComponentManager.RatController.ShowRats(ratSpawningRate);
             }
-            // _playerResponse = false;
+            else
+            {
+                ComponentManager.RatController.HideRats();
+            }
         }
     }
 

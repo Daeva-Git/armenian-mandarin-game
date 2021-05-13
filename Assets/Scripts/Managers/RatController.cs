@@ -1,14 +1,18 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class RatController : MonoBehaviour
 {
 	[SerializeField] private List<EyeBehaviour> ratsCollection;
 
+	public bool ScarePlayer => _scarePlayer;
+	
 	private bool _doShowRats;
 	private float _frequency;
 	private int _globalCounter;
-	public bool globalBoo = false;
+	private bool _scarePlayer;
+
 
 	private void Update()
 	{
@@ -27,11 +31,11 @@ public class RatController : MonoBehaviour
 		{
 			if (rat.scarePlayer)
 			{
-				globalBoo = true;
+				_scarePlayer = true;
 				break;
 			}
 
-			globalBoo = false;
+			_scarePlayer = false;
 		}
 	}
 
